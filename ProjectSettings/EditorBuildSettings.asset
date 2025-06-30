@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/City.unity
     guid: 96e55f0c84a33a34698bf87d54fff44d
+  - enabled: 1
+    path: Assets/Scenes/Last.unity
+    guid: bac7531ac6df47944a37ce8f12dfdc42
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
