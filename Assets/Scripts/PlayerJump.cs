@@ -1,3 +1,4 @@
+using Unity.Jobs;
 using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
@@ -13,10 +14,13 @@ public class PlayerJump : MonoBehaviour
     public Transform feetCollider;
     public LayerMask groundMask;
     private bool _groundCheck;
+    private bool _canDoubleJump;
 
     // Forces 
     public float jumpForce = 10;
     public float fallForce = 2;
+    public float doubleJumpForce = 0.01f;
+    public float doubleJumpCoefficient = 2f;
     private Vector2 _gravityVector;
     
     // Sets gravity vector and connects components 
@@ -26,20 +30,61 @@ public class PlayerJump : MonoBehaviour
     }
 
     // Update is called once per frame
-   private void Update() {
+   private void Update()
+    {
         // Checks if player is touching ground 
-        _groundCheck = Physics2D.OverlapCapsule(feetCollider.position, 
+        _groundCheck = Physics2D.OverlapCapsule(feetCollider.position,
             new Vector2(capsuleHeight, capsuleRadius), CapsuleDirection2D.Horizontal,
             0, groundMask);
 
-        // Checks if player is trying to jump/can jump 
-        if (Input.GetKeyDown(KeyCode.Space) && _groundCheck) {
-            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
+        Jump();
+        Fall();
+        DoubleJump();
+
+        if (_groundCheck)
+        {
+            _canDoubleJump = false;
         }
 
-        // Checks if the gravity should be getting faster 
-        if(_rigidbody2D.velocity.y < 0) {
-            _rigidbody2D.velocity += _gravityVector * (fallForce * Time.deltaTime);
+    }
+
+    private void DoubleJump()
+    {
+        if (!_groundCheck && _canDoubleJump && Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log(_rigidbody2D.linearVelocity);
+            float fuel = PlayerFuel.Instance.GetFuel();
+
+            if (fuel < 0) return;
+            if (_rigidbody2D.linearVelocityY < 0)
+            {
+                _rigidbody2D.linearVelocity += new Vector2(_rigidbody2D.linearVelocity.x, doubleJumpForce * doubleJumpCoefficient);
+            }
+            else
+            {
+                _rigidbody2D.linearVelocity += new Vector2(_rigidbody2D.linearVelocity.x, doubleJumpForce);
+            }
+            //if (_rigidbody2D.linearVelocityY < -5) _rigidbody2D.linearVelocityY = 0;
+            
+            PlayerFuel.Instance.DecreseFuel();
+        }
+    }
+
+    private void Fall()
+    {
+        if (!Input.GetKey(KeyCode.Space))
+        {
+            _rigidbody2D.linearVelocity += _gravityVector * (fallForce * Time.deltaTime);
+            _canDoubleJump = true;
+        }
+    }
+
+    private void Jump()
+    {
+        // Checks if player is trying to jump/can jump 
+        if (Input.GetKeyDown(KeyCode.Space) && _groundCheck)
+        {
+            _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, jumpForce);
         }
     }
 }
