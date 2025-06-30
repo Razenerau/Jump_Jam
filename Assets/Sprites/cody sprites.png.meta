@@ -139,10 +139,10 @@ TextureImporter:
       name: cody sprites_0
       rect:
         serializedVersion: 2
-        x: 273
-        y: 3039
-        width: 463
-        height: 909
+        x: 0
+        y: 3000
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,10 +161,10 @@ TextureImporter:
       name: cody sprites_1
       rect:
         serializedVersion: 2
-        x: 1208
-        y: 3039
-        width: 646
-        height: 909
+        x: 1000
+        y: 3000
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: cody sprites_2
       rect:
         serializedVersion: 2
-        x: 2316
-        y: 3039
-        width: 464
-        height: 909
+        x: 2000
+        y: 3000
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,10 +205,10 @@ TextureImporter:
       name: cody sprites_3
       rect:
         serializedVersion: 2
-        x: 209
-        y: 2045
-        width: 617
-        height: 910
+        x: 0
+        y: 2000
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +227,10 @@ TextureImporter:
       name: cody sprites_4
       rect:
         serializedVersion: 2
-        x: 1027
-        y: 2028
-        width: 946
-        height: 288
+        x: 1000
+        y: 2000
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,10 +249,10 @@ TextureImporter:
       name: cody sprites_5
       rect:
         serializedVersion: 2
-        x: 2118
-        y: 2204
-        width: 831
-        height: 751
+        x: 2000
+        y: 2000
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,10 +271,10 @@ TextureImporter:
       name: cody sprites_6
       rect:
         serializedVersion: 2
-        x: 236
-        y: 1028
-        width: 524
-        height: 942
+        x: 0
+        y: 1000
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,10 +293,10 @@ TextureImporter:
       name: cody sprites_7
       rect:
         serializedVersion: 2
-        x: 1252
-        y: 1028
-        width: 518
-        height: 943
+        x: 1000
+        y: 1000
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: cody sprites_8
       rect:
         serializedVersion: 2
-        x: 2271
-        y: 1098
-        width: 503
-        height: 874
+        x: 2000
+        y: 1000
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -337,10 +337,10 @@ TextureImporter:
       name: cody sprites_9
       rect:
         serializedVersion: 2
-        x: 107
-        y: 27
-        width: 644
-        height: 956
+        x: 0
+        y: 0
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,10 +359,10 @@ TextureImporter:
       name: cody sprites_10
       rect:
         serializedVersion: 2
-        x: 722
-        y: 738
-        width: 116
-        height: 149
+        x: 1000
+        y: 0
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,10 +381,10 @@ TextureImporter:
       name: cody sprites_11
       rect:
         serializedVersion: 2
-        x: 1163
-        y: 23
-        width: 737
-        height: 960
+        x: 2000
+        y: 0
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -399,33 +399,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: cody sprites_12
-      rect:
-        serializedVersion: 2
-        x: 2102
-        y: 39
-        width: 831
-        height: 900
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6999be694e420feb0800000000000000
-      internalID: -4688206647889520234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e1238881532ef0b44863c6d69738efbf
     internalID: 0
     vertices: []
     indices: 
@@ -433,13 +411,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":1000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       cody sprites_0: 1095467063135339851
       cody sprites_1: -6732143044040890838
       cody sprites_10: -5604347233475511537
       cody sprites_11: 3213567307661188565
-      cody sprites_12: -4688206647889520234
       cody sprites_2: -5978405207086119422
       cody sprites_3: -4666046758253200926
       cody sprites_4: -7637106053239345194
