@@ -57,10 +57,12 @@ public class PlayerJump : MonoBehaviour
             if (fuel < 0) return;
             if (_rigidbody2D.linearVelocityY < 0)
             {
+                //PlayerAnimation.Instance.SetFlyingDown();
                 _rigidbody2D.linearVelocity += new Vector2(_rigidbody2D.linearVelocity.x, doubleJumpForce * doubleJumpCoefficient);
             }
             else
             {
+                //PlayerAnimation.Instance.SetFlyingUp();
                 _rigidbody2D.linearVelocity += new Vector2(_rigidbody2D.linearVelocity.x, doubleJumpForce);
             }
             
@@ -74,6 +76,7 @@ public class PlayerJump : MonoBehaviour
         {
             _rigidbody2D.linearVelocity += _gravityVector * (fallForce * Time.deltaTime);
             _canDoubleJump = true;
+            //PlayerAnimation.Instance.SetFalling();
         }
     }
 
@@ -83,6 +86,7 @@ public class PlayerJump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && _groundCheck)
         {
             _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, jumpForce);
+            //PlayerAnimation.Instance.SetJumping();
         }
     }
 }
