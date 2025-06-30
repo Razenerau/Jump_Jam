@@ -52,7 +52,6 @@ public class PlayerJump : MonoBehaviour
     {
         if (!_groundCheck && _canDoubleJump && Input.GetKey(KeyCode.Space))
         {
-            Debug.Log(_rigidbody2D.linearVelocity);
             float fuel = PlayerFuel.Instance.GetFuel();
 
             if (fuel < 0) return;
@@ -64,7 +63,6 @@ public class PlayerJump : MonoBehaviour
             {
                 _rigidbody2D.linearVelocity += new Vector2(_rigidbody2D.linearVelocity.x, doubleJumpForce);
             }
-            //if (_rigidbody2D.linearVelocityY < -5) _rigidbody2D.linearVelocityY = 0;
             
             PlayerFuel.Instance.DecreseFuel();
         }

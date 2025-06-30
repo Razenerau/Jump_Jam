@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerFuel : MonoBehaviour
 {
     public static PlayerFuel Instance;
+    public float MaxFuel = 100f;
     [SerializeField] private float _fuel = 100;
     [SerializeField] private float _fuelDepletion = 0.1f;
 
@@ -15,10 +16,19 @@ public class PlayerFuel : MonoBehaviour
     public void DecreseFuel()
     {
         _fuel -= _fuelDepletion;
-        Debug.Log(_fuel);
+        FuelBarController.Instance.SetFillAmount(_fuel);
     }
 
     public float GetFuel() { return _fuel; }
-    public void AddFuel(float num) { _fuel += num; }
+    public void AddFuel(float num)
+    {
+       //Debug.Log($"num: {num},   fuel {_fuel}");
+        float newFuel = _fuel + num;
+        if (newFuel >= MaxFuel) _fuel = MaxFuel;
+        else _fuel += num;
+        //Debug.Log($"newfuel {_fuel}");
+        FuelBarController.Instance.SetFillAmount(_fuel);
+
+    }
 
 }
