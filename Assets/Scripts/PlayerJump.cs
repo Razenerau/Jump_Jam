@@ -55,15 +55,15 @@ public class PlayerJump : MonoBehaviour
             float fuel = PlayerFuel.Instance.GetFuel();
 
             if (fuel < 0) return;
-            if (_rigidbody2D.linearVelocityY < 0)
+            if (_rigidbody2D.velocity.y < 0)
             {
                 //PlayerAnimation.Instance.SetFlyingDown();
-                _rigidbody2D.linearVelocity += new Vector2(_rigidbody2D.linearVelocity.x, doubleJumpForce * doubleJumpCoefficient);
+                _rigidbody2D.velocity += new Vector2(_rigidbody2D.velocity.x, doubleJumpForce * doubleJumpCoefficient);
             }
             else
             { 
                 //PlayerAnimation.Instance.SetFlyingUp();
-                _rigidbody2D.linearVelocity += new Vector2(_rigidbody2D.linearVelocity.x, doubleJumpForce);
+                _rigidbody2D.velocity += new Vector2(_rigidbody2D.velocity.x, doubleJumpForce);
             }
             
             PlayerFuel.Instance.DecreseFuel();
@@ -74,7 +74,7 @@ public class PlayerJump : MonoBehaviour
     {
         if (!Input.GetKey(KeyCode.Space))
         {
-            _rigidbody2D.linearVelocity += Vector2.up * _gravityVector * (fallForce * Time.deltaTime);
+            _rigidbody2D.velocity += Vector2.up * _gravityVector * (fallForce * Time.deltaTime);
             _canDoubleJump = true;
             //PlayerAnimation.Instance.SetFalling();
         }
@@ -85,7 +85,7 @@ public class PlayerJump : MonoBehaviour
         // Checks if player is trying to jump/can jump 
         if (Input.GetKeyDown(KeyCode.Space) && _groundCheck)
         {
-            _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, jumpForce);
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
         }
     }
 }
