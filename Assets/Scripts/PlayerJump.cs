@@ -5,6 +5,7 @@ public class PlayerJump : MonoBehaviour
 {
     [Header("Components")]
     private Rigidbody2D _rigidbody2D;
+    
 
     [Header("Capsule")]
     public float capsuleHeight = 0.25f;
@@ -33,6 +34,7 @@ public class PlayerJump : MonoBehaviour
     private void Start() {
         _gravityVector = new Vector2(0, Physics2D.gravity.y);
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -65,19 +67,11 @@ public class PlayerJump : MonoBehaviour
             {
                 //PlayerAnimation.Instance.SetFlyingDown();
                 _rigidbody2D.velocity += new Vector2(_rigidbody2D.velocity.x, doubleJumpForce * doubleJumpCoefficient);
-             
-                float clampedYVelocity = Mathf.Clamp(_rigidbody2D.velocity.y, MinYVelocity, MaxYVelocity);
-                float clampedXVelocity = Mathf.Clamp(_rigidbody2D.velocity.x, MinXVelocity, MaxXVelocity);
-                _rigidbody2D.velocity = new Vector2(clampedXVelocity, clampedYVelocity);
             }
             else
             { 
                 //PlayerAnimation.Instance.SetFlyingUp();
                 _rigidbody2D.velocity += new Vector2(_rigidbody2D.velocity.x, doubleJumpForce);
-
-                float clampedYVelocity = Mathf.Clamp(_rigidbody2D.velocity.y, MinYVelocity, MaxYVelocity);
-                float clampedXVelocity = Mathf.Clamp(_rigidbody2D.velocity.x, MinXVelocity, MaxXVelocity);
-                _rigidbody2D.velocity = new Vector2(clampedXVelocity, clampedYVelocity);
             }
             
             PlayerFuel.Instance.DecreseFuel();

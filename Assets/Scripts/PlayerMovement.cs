@@ -41,20 +41,21 @@ public class PlayerMovement : MonoBehaviour {
 
         if (_runningCheck)
         {
-            _animator.SetRunning(true);
-            newVelocity = new Vector2(horizontal * runningSpeed, _rigidbody2D.velocity.y);
+            //_animator.SetRunning(true);
+            newVelocity = new Vector2(horizontal * runningSpeed, _rigidbody2D.velocity.y);  
         }
         else if(horizontal != 0)
         {
-            _animator.SetWalking(true);
+            //_animator.SetWalking(true);
             newVelocity = new Vector2(horizontal * speed, _rigidbody2D.velocity.y);
         }
         else
         {
-            _animator.SetIdle();
+            //_animator.SetIdle();
             newVelocity = _rigidbody2D.velocity;
         }
 
         _rigidbody2D.velocity = newVelocity;
+        PlayerAnim.Instance.Animator.SetFloat("xVelocity", Mathf.Abs(_rigidbody2D.velocity.x));
     }
 }
