@@ -57,5 +57,6 @@ public class PlayerMovement : MonoBehaviour {
 
         _rigidbody2D.velocity = newVelocity;
         PlayerAnim.Instance.Animator.SetFloat("xVelocity", Mathf.Abs(_rigidbody2D.velocity.x));
+        PlayerAnim.Instance.Animator.SetFloat("yVelocity", _rigidbody2D.velocity.y);
     }
 }

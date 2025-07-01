@@ -45,14 +45,17 @@ public class PlayerJump : MonoBehaviour
             new Vector2(capsuleHeight, capsuleRadius), CapsuleDirection2D.Horizontal,
             0, groundMask);
 
+        if (_groundCheck)
+        {
+            _canDoubleJump = false;
+            
+        }
+
         Jump();
         Fall();
         DoubleJump();
 
-        if (_groundCheck)
-        {
-            _canDoubleJump = false;
-        }
+        
 
     }
 
@@ -85,6 +88,7 @@ public class PlayerJump : MonoBehaviour
             _rigidbody2D.velocity += Vector2.up * _gravityVector * (fallForce * Time.deltaTime);
             _canDoubleJump = true;
             //PlayerAnimation.Instance.SetFalling();
+            
         }
     }
 
@@ -93,7 +97,12 @@ public class PlayerJump : MonoBehaviour
         // Checks if player is trying to jump/can jump 
         if (Input.GetKeyDown(KeyCode.Space) && _groundCheck)
         {
+            PlayerAnim.Instance.Animator.SetBool("isJumping", true);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
+        }
+        else if (!Input.GetKey(KeyCode.Space) && _groundCheck)
+        {
+            PlayerAnim.Instance.Animator.SetBool("isJumping", false);
         }
     }
 }
