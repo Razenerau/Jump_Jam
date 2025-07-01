@@ -3,26 +3,32 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    // Components 
+    [Header("Components")]
     private Rigidbody2D _rigidbody2D;
-    
-    // Capsule
+
+    [Header("Capsule")]
     public float capsuleHeight = 0.25f;
     public float capsuleRadius = 0.08f;
 
-    // Ground Check 
+    [Header("Ground Check")]
     public Transform feetCollider;
     public LayerMask groundMask;
     private bool _groundCheck;
     private bool _canDoubleJump;
 
-    // Forces 
+    [Header("Forces")]
     public float jumpForce = 10;
     public float fallForce = 2;
     public float doubleJumpForce = 0.01f;
     public float doubleJumpCoefficient = 2f;
     private Vector2 _gravityVector;
-    
+
+    [Header("Limits")]
+    public float MaxXVelocity = 10f;
+    public float MinXVelocity = -10f;
+    public float MaxYVelocity = 15;
+    public float MinYVelocity = -15f;
+
     // Sets gravity vector and connects components 
     private void Start() {
         _gravityVector = new Vector2(0, Physics2D.gravity.y);
@@ -59,11 +65,19 @@ public class PlayerJump : MonoBehaviour
             {
                 //PlayerAnimation.Instance.SetFlyingDown();
                 _rigidbody2D.velocity += new Vector2(_rigidbody2D.velocity.x, doubleJumpForce * doubleJumpCoefficient);
+             
+                float clampedYVelocity = Mathf.Clamp(_rigidbody2D.velocity.y, MinYVelocity, MaxYVelocity);
+                float clampedXVelocity = Mathf.Clamp(_rigidbody2D.velocity.x, MinXVelocity, MaxXVelocity);
+                _rigidbody2D.velocity = new Vector2(clampedXVelocity, clampedYVelocity);
             }
             else
             { 
                 //PlayerAnimation.Instance.SetFlyingUp();
                 _rigidbody2D.velocity += new Vector2(_rigidbody2D.velocity.x, doubleJumpForce);
+
+                float clampedYVelocity = Mathf.Clamp(_rigidbody2D.velocity.y, MinYVelocity, MaxYVelocity);
+                float clampedXVelocity = Mathf.Clamp(_rigidbody2D.velocity.x, MinXVelocity, MaxXVelocity);
+                _rigidbody2D.velocity = new Vector2(clampedXVelocity, clampedYVelocity);
             }
             
             PlayerFuel.Instance.DecreseFuel();

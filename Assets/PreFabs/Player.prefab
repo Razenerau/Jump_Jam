@@ -147,7 +147,11 @@ MonoBehaviour:
   jumpForce: 10
   fallForce: 2
   doubleJumpForce: 0.05
-  doubleJumpCoefficient: 2
+  doubleJumpCoefficient: 3
+  MaxXVelocity: 10
+  MinXVelocity: -10
+  MaxYVelocity: 15
+  MinYVelocity: -15
 --- !u!114 &1948045616662774038
 MonoBehaviour:
   m_ObjectHideFlags: 0

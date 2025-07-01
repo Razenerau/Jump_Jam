@@ -5,8 +5,7 @@ public class reset : MonoBehaviour
 {
     
     void Update()
-    {
-        Debug.Log("rnsnt");
+    { 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             

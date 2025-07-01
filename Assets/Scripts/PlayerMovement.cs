@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     private void Update()
     {
+        float clampedYVelocity = Mathf.Clamp(_rigidbody2D.velocity.y, -15, 15);
+        float clampedXVelocity = Mathf.Clamp(_rigidbody2D.velocity.x, -runningSpeed, runningSpeed);
+
         _runningCheck = Input.GetKey(KeyCode.LeftShift);
          horizontal = Input.GetAxis("Horizontal");
         Vector2 newVelocity;
