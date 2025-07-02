@@ -48,7 +48,8 @@ public class PlayerJump : MonoBehaviour
         if (_groundCheck)
         {
             _canDoubleJump = false;
-            
+            PlayerAnim.Instance.Animator.SetBool("isFalling", false);
+
         }
 
         Jump();
@@ -78,6 +79,7 @@ public class PlayerJump : MonoBehaviour
             }
             
             PlayerFuel.Instance.DecreseFuel();
+            PlayerAnim.Instance.Animator.SetBool("isFlying", true);
         }
     }
 
@@ -87,8 +89,13 @@ public class PlayerJump : MonoBehaviour
         {
             _rigidbody2D.velocity += Vector2.up * _gravityVector * (fallForce * Time.deltaTime);
             _canDoubleJump = true;
-            //PlayerAnimation.Instance.SetFalling();
+            if (PlayerAnim.Instance.Animator.GetBool("isJumping") == true)
+            {
+                PlayerAnim.Instance.Animator.SetBool("isFalling", true);
+                PlayerAnim.Instance.Animator.SetBool("isJumping", false);
+            }
             
+
         }
     }
 
@@ -97,12 +104,13 @@ public class PlayerJump : MonoBehaviour
         // Checks if player is trying to jump/can jump 
         if (Input.GetKeyDown(KeyCode.Space) && _groundCheck)
         {
+
             PlayerAnim.Instance.Animator.SetBool("isJumping", true);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
         }
-        else if (!Input.GetKey(KeyCode.Space) && _groundCheck)
-        {
-            PlayerAnim.Instance.Animator.SetBool("isJumping", false);
-        }
+        //else if (!Input.GetKey(KeyCode.Space) && _groundCheck)
+        //{
+        //    PlayerAnim.Instance.Animator.SetBool("isJumping", false);
+        //}
     }
 }
