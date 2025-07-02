@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
         
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+        }
     }
 
     private void Movement()
@@ -48,6 +52,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("gorunde");
+        PlayerModel.IsGrounded = true;
     }
 }
