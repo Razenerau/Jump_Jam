@@ -19,10 +19,28 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Movement();
-        
+
+        //jump or fly
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //jumping off the ground
+            if (PlayerModel.IsGrounded)
+            {
+                Debug.Log("Jumping");
+                PlayerModel.IsJumping = true;
+            }
+        }
 
+        //falling
+        if (Rb.velocity.y < -2) 
+        {
+            PlayerModel.IsFalling = true;
+            Debug.Log("Falling");
+        }
+
+        if (PlayerModel.IsJumping)
+        {
+            Rb.AddForce(new Vector2(0, PlayerModel.JumpForce));
         }
     }
 
@@ -45,13 +63,17 @@ public class PlayerController : MonoBehaviour
 
     private void RunningCheck()
     {
-        if (Input.GetKey(KeyCode.LeftShift)) { PlayerModel.IsRunning = true; Debug.Log("running"); }
+        if (Input.GetKey(KeyCode.LeftShift)) { PlayerModel.IsRunning = true; }
 
-        else { PlayerModel.IsRunning = false; Debug.Log("NOT running"); }
+        else { PlayerModel.IsRunning = false; }
     }
 
+    //When touches ground
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Debug.Log("Grounded");
         PlayerModel.IsGrounded = true;
+        PlayerModel.IsFalling = false;
+        PlayerModel.IsJumping = false;
     }
 }

@@ -10,10 +10,12 @@ public class PlayerModel : MonoBehaviour
     public bool IsRunning = false;
 
     [Header("Jump Variables")]
-    //public float JumpForce
+    public float JumpForce = 2f;
     //public float JumpTime
     //public float 
     public bool IsGrounded = false;
+    public bool IsJumping = false;
+    public bool IsFalling = false;
 
     [Header("Fuel")]
     public float MaxFuel = 100f;
