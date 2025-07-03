@@ -8,13 +8,6 @@ public class PlayerController : MonoBehaviour
     public PlayerView PlayerView;
     public Rigidbody2D Rb;
 
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // All checks happen in Update
     void Update()
     {
@@ -28,31 +21,28 @@ public class PlayerController : MonoBehaviour
     // All movement happens in Late Update
     void LateUpdate()
     {
-        // Jump
-        if (PlayerModel.IsJumping && Input.GetKeyDown(KeyCode.Space))
-        {
-            Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
-            Rb.velocity = newVelocity;
-        }
+        Jump();
 
-        // Flying
-        if (PlayerModel.IsFlying)
-        {
-            float flyMultiplier = Rb.velocity.y < -10 ? PlayerModel.FlyMultiplier : 1;
-            Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.FlyForce * flyMultiplier);
-            Rb.velocity += newVelocity;
-        }
+        Fly();
 
-        // Gravity
-        if(!PlayerModel.IsGrounded && !Input.GetKey(KeyCode.Space))
-        {
-            Rb.velocity += PlayerModel.GravityVector * (PlayerModel.FallForce * Time.deltaTime);
-        }
+        Gravity();
 
-        float clampedYVelocity = Mathf.Clamp(Rb.velocity.y, -PlayerModel.MaxYVelocity, PlayerModel.MaxYVelocity);
-        Rb.velocity = new Vector2(Rb.velocity.x, clampedYVelocity);
+        ClampVelocityY();
 
         Movement(); // Clamps X velocity
+    }
+
+    private void ClampVelocityY()
+    {
+        float clampedYVelocity = Mathf.Clamp(Rb.velocity.y, -PlayerModel.MaxYVelocity, PlayerModel.MaxYVelocity);
+        Rb.velocity = new Vector2(Rb.velocity.x, clampedYVelocity);
+    }
+
+    public void AddFuel(float num)
+    {
+        float newFuel = PlayerModel.CurrentFuel + num;
+        PlayerModel.CurrentFuel = newFuel >= PlayerModel.MaxFuel ? PlayerModel.MaxFuel : newFuel;
+        FuelBarController.Instance.SetFillAmount(PlayerModel.CurrentFuel);
     }
 
     //=============================================================================================
@@ -71,11 +61,15 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if((PlayerModel.IsJumping || PlayerModel.IsFalling) && PlayerModel.CurrentFuel > 0)
+            if(!PlayerModel.IsGrounded && PlayerModel.CurrentFuel > 0)
             {
                 PlayerModel.IsFlying = true;
                 PlayerModel.IsFalling = false;
                 PlayerModel.IsJumping = false;
+            }
+            else if (PlayerModel.CurrentFuel <= 0) 
+            {
+                //Debug.Log("Out of Fuel");
             }
 
             //jumping off the ground
@@ -112,7 +106,35 @@ public class PlayerController : MonoBehaviour
         Rb.velocity = new Vector2(newXVelocity, Rb.velocity.y);
     }
 
-    
+    private void Gravity()
+    {
+        if (!PlayerModel.IsGrounded && !Input.GetKey(KeyCode.Space))
+        {
+            Rb.velocity += PlayerModel.GravityVector * (PlayerModel.FallForce * Time.deltaTime);
+        }
+    }
+
+    private void Fly()
+    {
+        if (PlayerModel.IsFlying && PlayerModel.CurrentFuel > 0)
+        {
+            float flyMultiplier = Rb.velocity.y < -10 ? PlayerModel.FlyMultiplier : 1;
+            Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.FlyForce * flyMultiplier);
+            Rb.velocity += newVelocity;
+
+            PlayerModel.CurrentFuel -= PlayerModel.FuelDecrement;
+            FuelBarController.Instance.SetFillAmount(PlayerModel.CurrentFuel);
+        }
+    }
+
+    private void Jump()
+    {
+        if (PlayerModel.IsJumping && Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
+            Rb.velocity = newVelocity;
+        }
+    }
 
     //=============================================================================================
     //                          COLLISION   

@@ -26561,12 +26561,16 @@ MonoBehaviour:
   WalkingSpeed: 5
   RunningSpeed: 7
   IsRunning: 0
-  JumpForce: 0.1
+  JumpForce: 8
+  FlyForce: 0.04
+  FlyMultiplier: 3
+  MaxYVelocity: 25
   GravityVector: {x: 0, y: -9.81}
   FallForce: 4
   IsGrounded: 0
   IsJumping: 0
   IsFalling: 0
+  IsFlying: 0
   MaxFuel: 100
   CurrentFuel: 100
   FuelDecrement: 0.1

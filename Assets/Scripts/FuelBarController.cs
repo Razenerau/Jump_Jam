@@ -6,6 +6,7 @@ public class FuelBarController : MonoBehaviour
 {
     public Image image;
     public static FuelBarController Instance;
+    public PlayerModel playerModel;
 
     private void Awake()
     {
@@ -15,7 +16,7 @@ public class FuelBarController : MonoBehaviour
 
     public void SetFillAmount(float fuelAmount)
     {
-        float totalFuel = PlayerFuel.Instance.MaxFuel;
+        float totalFuel = playerModel.MaxFuel;
         float percentage = fuelAmount / totalFuel;
         image.fillAmount = percentage;
     }
