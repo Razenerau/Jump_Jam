@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
 
         FallCheck();
 
-        PlayerView.UpdateBools();
-        PlayerView.UpdateVelocity(Rb.velocity);
+        PlayerView.SetBools();
+        PlayerView.SetVelocity(Rb.velocity);
     }
 
     // All movement happens in Late Update
