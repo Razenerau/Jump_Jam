@@ -12,14 +12,19 @@ public class PlayerModel : MonoBehaviour
     public float RunningSpeed = 7;
     public bool IsRunning = false;
 
-    [Header("Jump Variables")]
+    [Header("Jump/Fly Variables")]
     public float JumpForce = 2f;
+    public float FlyForce = 0.1f;
+    public float FlyMultiplier = 4f;
     public float MaxYVelocity = 25f;
     public Vector2 GravityVector;
     public float FallForce = 2f;
+
+    [Header("Jump Checks")]
     public bool IsGrounded = false;
     public bool IsJumping = false;
     public bool IsFalling = true;
+    public bool IsFlying = false;
 
     [Header("Fuel")]
     public float MaxFuel = 100f;

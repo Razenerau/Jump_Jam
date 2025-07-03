@@ -28,20 +28,29 @@ public class PlayerController : MonoBehaviour
     // All movement happens in Late Update
     void LateUpdate()
     {
+        // Jump
         if (PlayerModel.IsJumping && Input.GetKeyDown(KeyCode.Space))
         {
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
             Rb.velocity = newVelocity;
-           
         }
 
+        // Flying
+        if (PlayerModel.IsFlying)
+        {
+            float flyMultiplier = Rb.velocity.y < -10 ? PlayerModel.FlyMultiplier : 1;
+            Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.FlyForce * flyMultiplier);
+            Rb.velocity += newVelocity;
+        }
+
+        // Gravity
         if(!PlayerModel.IsGrounded && !Input.GetKey(KeyCode.Space))
         {
             Rb.velocity += PlayerModel.GravityVector * (PlayerModel.FallForce * Time.deltaTime);
-            float clampedYVelocity = Mathf.Clamp(Rb.velocity.y, -PlayerModel.MaxYVelocity, PlayerModel.MaxYVelocity);
-            Rb.velocity = new Vector2(Rb.velocity.x, clampedYVelocity);
-
         }
+
+        float clampedYVelocity = Mathf.Clamp(Rb.velocity.y, -PlayerModel.MaxYVelocity, PlayerModel.MaxYVelocity);
+        Rb.velocity = new Vector2(Rb.velocity.x, clampedYVelocity);
 
         Movement(); // Clamps X velocity
     }
@@ -62,15 +71,24 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if((PlayerModel.IsJumping || PlayerModel.IsFalling) && PlayerModel.CurrentFuel > 0)
+            {
+                PlayerModel.IsFlying = true;
+                PlayerModel.IsFalling = false;
+                PlayerModel.IsJumping = false;
+            }
+
             //jumping off the ground
             if (PlayerModel.IsGrounded)
             {
                 PlayerModel.IsJumping = true;
             }
         }
+
         if (Input.GetKeyUp(KeyCode.Space))
         {
             PlayerModel.IsJumping = false;
+            PlayerModel.IsFlying = false;
         }
     }
 
