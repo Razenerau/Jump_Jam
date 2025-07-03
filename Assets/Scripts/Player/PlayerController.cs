@@ -28,12 +28,16 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Jumping");
                 PlayerModel.IsJumping = true;
-                PlayerModel.IsGrounded = false;
+                //PlayerModel.IsGrounded = false;
             }
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            PlayerModel.IsJumping = false;
         }
 
         //falling
-        if (Rb.velocity.y < -2) 
+        if (Rb.velocity.y < -1 && !PlayerModel.IsGrounded) 
         {
             PlayerModel.IsFalling = true;
             Debug.Log("Falling");
@@ -44,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (PlayerModel.IsJumping)
+        if (PlayerModel.IsJumping && Input.GetKey(KeyCode.Space))
         {
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
             Rb.velocity += newVelocity;
@@ -80,11 +84,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-            Debug.Log("Triggered by " + collision.name);
-            //PlayerModel.IsGrounded = true;
-            //PlayerModel.IsFalling = false;
-            //PlayerModel.IsJumping = false;
-        
+        Debug.Log("Triggered by " + collision.name);
+        PlayerModel.IsGrounded = true;
+        PlayerModel.IsFalling = false;
+        PlayerModel.IsJumping = false;
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        PlayerModel.IsGrounded = true;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        PlayerModel.IsGrounded = false;
     }
 }

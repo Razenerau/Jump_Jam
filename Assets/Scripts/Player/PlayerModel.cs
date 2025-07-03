@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
 {
-    [Header("Components")]
-    public BoxCollider2D BoxCollider;
-    public Collider2D FeetCollider;
+    //[Header("Components")]
+    //public BoxCollider2D BoxCollider;
     
     [Header("Movement Variables")]
     public float WalkingSpeed = 5;
@@ -19,7 +18,7 @@ public class PlayerModel : MonoBehaviour
     //public float 
     public bool IsGrounded = false;
     public bool IsJumping = false;
-    public bool IsFalling = false;
+    public bool IsFalling = true;
 
     [Header("Fuel")]
     public float MaxFuel = 100f;
