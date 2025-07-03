@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
 {
+    [Header("Components")]
+    public BoxCollider2D BoxCollider;
+    public CapsuleCollider2D FeetCollider;
+    
     [Header("Movement Variables")]
     public float WalkingSpeed = 5;
     public float RunningSpeed = 7;

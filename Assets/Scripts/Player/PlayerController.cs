@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Jumping");
                 PlayerModel.IsJumping = true;
+                PlayerModel.IsGrounded = false;
             }
         }
 
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
         if (PlayerModel.IsJumping)
         {
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
-            Rb.velocity = newVelocity;
+            Rb.velocity += newVelocity;
         }
     }
 
@@ -77,9 +78,18 @@ public class PlayerController : MonoBehaviour
     //When touches ground
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("Grounded");
-        PlayerModel.IsGrounded = true;
-        PlayerModel.IsFalling = false;
-        PlayerModel.IsJumping = false;
+        Collider2D Collider = collision.otherCollider;
+        if (Collider == PlayerModel.FeetCollider)
+        {
+            Debug.Log("Grounded");
+            PlayerModel.IsGrounded = true;
+            PlayerModel.IsFalling = false;
+            PlayerModel.IsJumping = false;
+        }
+        else if (Collider == PlayerModel.BoxCollider)
+        {
+            Debug.Log("Box collision");
+        }
+        
     }
 }
