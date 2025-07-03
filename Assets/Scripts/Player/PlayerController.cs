@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-            Debug.Log("Grounded");
+            Debug.Log("Triggered by " + collision.name);
             //PlayerModel.IsGrounded = true;
             //PlayerModel.IsFalling = false;
             //PlayerModel.IsJumping = false;
