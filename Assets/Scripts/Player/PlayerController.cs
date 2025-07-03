@@ -15,12 +15,43 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // All checks happen in Update
     void Update()
     {
-        Movement();
+        RunningCheck();
 
-        //jump or fly
+        JumpOrFlyCheck();
+
+        FallCheck();
+    }
+
+    // All movement happens in Late Update
+    void LateUpdate()
+    {
+        if (PlayerModel.IsJumping && Input.GetKey(KeyCode.Space))
+        {
+            Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
+            Rb.velocity += newVelocity;
+        }
+
+        Movement(); // Clamps X velocity
+    }
+
+    //=============================================================================================
+    //                          CHECKS
+    //=============================================================================================
+
+    private void FallCheck()
+    {
+        if (Rb.velocity.y < -1 && !PlayerModel.IsGrounded)
+        {
+            PlayerModel.IsFalling = true;
+            Debug.Log("Falling");
+        }
+    }
+
+    private void JumpOrFlyCheck()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //jumping off the ground
@@ -35,55 +66,6 @@ public class PlayerController : MonoBehaviour
         {
             PlayerModel.IsJumping = false;
         }
-
-        //falling
-        if (Rb.velocity.y < -1 && !PlayerModel.IsGrounded) 
-        {
-            PlayerModel.IsFalling = true;
-            Debug.Log("Falling");
-        }
-
-        
-    }
-
-    void LateUpdate()
-    {
-        if (PlayerModel.IsJumping && Input.GetKey(KeyCode.Space))
-        {
-            Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
-            Rb.velocity += newVelocity;
-        }
-
-        // Clamp the velocity based on the movement mode
-        float maxSpeed = PlayerModel.IsRunning ? 7f : 4f;
-        float newXVelocity = Mathf.Clamp(Rb.velocity.x, -maxSpeed, maxSpeed);
-        Rb.velocity = new Vector2(newXVelocity, Rb.velocity.y);
-    }
-
-    private void Movement()
-    {
-        RunningCheck();
-
-        //float horizontal = Input.GetAxis("Horizontal");
-        //float newXVelocity;
-        //if (PlayerModel.IsRunning)
-        //{
-        //    newXVelocity = horizontal * PlayerModel.RunningSpeed;
-        //}
-        //else
-        //{
-        //    newXVelocity = horizontal * PlayerModel.WalkingSpeed;
-        //}
-        //Rb.velocity = new Vector2(newXVelocity, Rb.velocity.y);
-
-        float horizontal = Input.GetAxis("Horizontal");
-        float speed = PlayerModel.IsRunning ? PlayerModel.RunningSpeed : PlayerModel.WalkingSpeed;
-        float newXVelocity = horizontal * speed;
-
-        
-
-        Rb.velocity = new Vector2(newXVelocity, Rb.velocity.y);
-
     }
 
     private void RunningCheck()
@@ -93,7 +75,24 @@ public class PlayerController : MonoBehaviour
         else { PlayerModel.IsRunning = false; }
     }
 
-    //When touches ground
+    //=============================================================================================
+    //                      MOVEMENT
+    //=============================================================================================
+
+    private void Movement()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float speed = PlayerModel.IsRunning ? PlayerModel.RunningSpeed : PlayerModel.WalkingSpeed;
+        float newXVelocity = horizontal * speed;
+
+        Rb.velocity = new Vector2(newXVelocity, Rb.velocity.y);
+    }
+
+    
+
+    //=============================================================================================
+    //                          COLLISION   
+    //=============================================================================================
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerModel.IsGrounded = true;
