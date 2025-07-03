@@ -38,9 +38,15 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Falling");
         }
 
+        
+    }
+
+    void LateUpdate()
+    {
         if (PlayerModel.IsJumping)
         {
-            Rb.AddForce(new Vector2(0, PlayerModel.JumpForce));
+            Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
+            Rb.velocity = newVelocity;
         }
     }
 
