@@ -53,23 +53,37 @@ public class PlayerController : MonoBehaviour
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
             Rb.velocity += newVelocity;
         }
+
+        // Clamp the velocity based on the movement mode
+        float maxSpeed = PlayerModel.IsRunning ? 7f : 4f;
+        float newXVelocity = Mathf.Clamp(Rb.velocity.x, -maxSpeed, maxSpeed);
+        Rb.velocity = new Vector2(newXVelocity, Rb.velocity.y);
     }
 
     private void Movement()
     {
         RunningCheck();
 
+        //float horizontal = Input.GetAxis("Horizontal");
+        //float newXVelocity;
+        //if (PlayerModel.IsRunning)
+        //{
+        //    newXVelocity = horizontal * PlayerModel.RunningSpeed;
+        //}
+        //else
+        //{
+        //    newXVelocity = horizontal * PlayerModel.WalkingSpeed;
+        //}
+        //Rb.velocity = new Vector2(newXVelocity, Rb.velocity.y);
+
         float horizontal = Input.GetAxis("Horizontal");
-        float newXVelocity;
-        if (PlayerModel.IsRunning)
-        {
-            newXVelocity = horizontal * PlayerModel.RunningSpeed;
-        }
-        else
-        {
-            newXVelocity = horizontal * PlayerModel.WalkingSpeed;
-        }
+        float speed = PlayerModel.IsRunning ? PlayerModel.RunningSpeed : PlayerModel.WalkingSpeed;
+        float newXVelocity = horizontal * speed;
+
+        
+
         Rb.velocity = new Vector2(newXVelocity, Rb.velocity.y);
+
     }
 
     private void RunningCheck()
@@ -80,11 +94,8 @@ public class PlayerController : MonoBehaviour
     }
 
     //When touches ground
-    
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Triggered by " + collision.name);
         PlayerModel.IsGrounded = true;
         PlayerModel.IsFalling = false;
         PlayerModel.IsJumping = false;
