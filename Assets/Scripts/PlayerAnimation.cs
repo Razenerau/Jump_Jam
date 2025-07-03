@@ -35,29 +35,29 @@ public class PlayerAnimation : MonoBehaviour
 
     /*public void SetJumping()
     {
-        animator.SetBool("IsJumping", true);
-        animator.SetBool("isWalking", false);
-        animator.SetBool("isRunning", false);
+        Animator.SetBool("IsJumping", true);
+        Animator.SetBool("isWalking", false);
+        Animator.SetBool("isRunning", false);
     }
 
     public void SetFalling()
     {
-        animator.SetBool("IsJumping", false);
-        animator.SetBool("isFalling", true );
+        Animator.SetBool("IsJumping", false);
+        Animator.SetBool("isFalling", true );
     }
 
     public void SetFlyingUp()
     {
-        animator.SetBool("isFalling", false);
-        animator.SetBool("FlyingUp", true);
-        animator.SetBool("FlyingDown", false);
+        Animator.SetBool("isFalling", false);
+        Animator.SetBool("FlyingUp", true);
+        Animator.SetBool("FlyingDown", false);
     }
 
     public void SetFlyingDown()
     {
-        animator.SetBool("FlyingUp", false);
-        animator.SetBool("FlyingDown", true);
-        animator.SetBool("isFalling", false);
+        Animator.SetBool("FlyingUp", false);
+        Animator.SetBool("FlyingDown", true);
+        Animator.SetBool("isFalling", false);
     }*/
 
 }

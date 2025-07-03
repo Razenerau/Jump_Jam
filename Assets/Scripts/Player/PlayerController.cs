@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
         JumpOrFlyCheck();
 
         FallCheck();
+
+        PlayerView.UpdateBools();
+        PlayerView.UpdateVelocity(Rb.velocity);
     }
 
     // All movement happens in Late Update
@@ -30,6 +33,8 @@ public class PlayerController : MonoBehaviour
         ClampVelocityY();
 
         Movement(); // Clamps X velocity
+
+        
     }
 
     private void ClampVelocityY()
@@ -54,6 +59,7 @@ public class PlayerController : MonoBehaviour
         if (Rb.velocity.y < -1 && !PlayerModel.IsGrounded)
         {
             PlayerModel.IsFalling = true;
+            //PlayerView.SetFalling();
         }
     }
 

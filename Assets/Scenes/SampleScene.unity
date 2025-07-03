@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 578811035}
+  playerModel: {fileID: 8747607433629224805}
 --- !u!114 &578811035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26271,14 +26272,12 @@ GameObject:
   - component: {fileID: 6468039973384647357}
   - component: {fileID: 8747607433629224807}
   - component: {fileID: 8279224223259816626}
+  - component: {fileID: 8747607433629224802}
   - component: {fileID: 8367023725581887031}
   - component: {fileID: 5108173806279560815}
-  - component: {fileID: 7790183217622831293}
-  - component: {fileID: 8747607433629224802}
   - component: {fileID: 8747607433629224806}
   - component: {fileID: 8747607433629224805}
   - component: {fileID: 8747607433629224804}
-  - component: {fileID: 8747607433629224803}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -26443,21 +26442,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6933928418195726245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7790183217622831293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415263520580243248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca57906a2e2861f46a0d454cd4e79551, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxFuel: 100
-  _fuel: 100
-  _fuelDepletion: 0.1
 --- !u!50 &8279224223259816626
 Rigidbody2D:
   serializedVersion: 4
@@ -26518,19 +26502,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8747607433629224803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415263520580243248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545fc68f2f11f0249b3910d29df2d451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Animator: {fileID: 0}
 --- !u!114 &8747607433629224804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26563,7 +26534,7 @@ MonoBehaviour:
   IsRunning: 0
   JumpForce: 8
   FlyForce: 0.04
-  FlyMultiplier: 3
+  FlyMultiplier: 4.5
   MaxYVelocity: 25
   GravityVector: {x: 0, y: -9.81}
   FallForce: 4
@@ -26586,6 +26557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e71e0a942a9fa41a263dd6c03f0ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Animator: {fileID: 8747607433629224802}
+  PlayerModel: {fileID: 8747607433629224805}
 --- !u!61 &8747607433629224807
 BoxCollider2D:
   m_ObjectHideFlags: 0
