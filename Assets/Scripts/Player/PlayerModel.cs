@@ -14,8 +14,9 @@ public class PlayerModel : MonoBehaviour
 
     [Header("Jump Variables")]
     public float JumpForce = 2f;
-    //public float JumpTime
-    //public float 
+    public float MaxYVelocity = 25f;
+    public Vector2 GravityVector;
+    public float FallForce = 2f;
     public bool IsGrounded = false;
     public bool IsJumping = false;
     public bool IsFalling = true;

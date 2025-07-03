@@ -28,10 +28,19 @@ public class PlayerController : MonoBehaviour
     // All movement happens in Late Update
     void LateUpdate()
     {
-        if (PlayerModel.IsJumping && Input.GetKey(KeyCode.Space))
+        if (PlayerModel.IsJumping && Input.GetKeyDown(KeyCode.Space))
         {
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
-            Rb.velocity += newVelocity;
+            Rb.velocity = newVelocity;
+           
+        }
+
+        if(!PlayerModel.IsGrounded && !Input.GetKey(KeyCode.Space))
+        {
+            Rb.velocity += PlayerModel.GravityVector * (PlayerModel.FallForce * Time.deltaTime);
+            float clampedYVelocity = Mathf.Clamp(Rb.velocity.y, -PlayerModel.MaxYVelocity, PlayerModel.MaxYVelocity);
+            Rb.velocity = new Vector2(Rb.velocity.x, clampedYVelocity);
+
         }
 
         Movement(); // Clamps X velocity
@@ -46,7 +55,6 @@ public class PlayerController : MonoBehaviour
         if (Rb.velocity.y < -1 && !PlayerModel.IsGrounded)
         {
             PlayerModel.IsFalling = true;
-            Debug.Log("Falling");
         }
     }
 
@@ -57,9 +65,7 @@ public class PlayerController : MonoBehaviour
             //jumping off the ground
             if (PlayerModel.IsGrounded)
             {
-                Debug.Log("Jumping");
                 PlayerModel.IsJumping = true;
-                //PlayerModel.IsGrounded = false;
             }
         }
         if (Input.GetKeyUp(KeyCode.Space))

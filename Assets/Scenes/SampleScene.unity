@@ -26562,6 +26562,8 @@ MonoBehaviour:
   RunningSpeed: 7
   IsRunning: 0
   JumpForce: 0.1
+  GravityVector: {x: 0, y: -9.81}
+  FallForce: 4
   IsGrounded: 0
   IsJumping: 0
   IsFalling: 0
