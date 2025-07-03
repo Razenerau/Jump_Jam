@@ -6,7 +6,7 @@ public class PlayerModel : MonoBehaviour
 {
     [Header("Components")]
     public BoxCollider2D BoxCollider;
-    public CapsuleCollider2D FeetCollider;
+    public Collider2D FeetCollider;
     
     [Header("Movement Variables")]
     public float WalkingSpeed = 5;

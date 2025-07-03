@@ -76,20 +76,15 @@ public class PlayerController : MonoBehaviour
     }
 
     //When touches ground
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Collider2D Collider = collision.otherCollider;
-        if (Collider == PlayerModel.FeetCollider)
-        {
+        
             Debug.Log("Grounded");
-            PlayerModel.IsGrounded = true;
-            PlayerModel.IsFalling = false;
-            PlayerModel.IsJumping = false;
-        }
-        else if (Collider == PlayerModel.BoxCollider)
-        {
-            Debug.Log("Box collision");
-        }
+            //PlayerModel.IsGrounded = true;
+            //PlayerModel.IsFalling = false;
+            //PlayerModel.IsJumping = false;
         
     }
 }
