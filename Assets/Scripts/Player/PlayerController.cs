@@ -90,6 +90,11 @@ public class PlayerController : MonoBehaviour
             PlayerModel.IsJumping = false;
             PlayerModel.IsFlying = false;
         }
+
+        if(PlayerModel.CurrentFuel < 0)
+        {
+            PlayerModel.IsFlying = false;
+        }
     }
 
     private void RunningCheck()
