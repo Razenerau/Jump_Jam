@@ -19,12 +19,15 @@ public class PlayerModel : MonoBehaviour
     public float MaxYVelocity = 25f;
     public Vector2 GravityVector;
     public float FallForce = 2f;
+    public float SplatVelocity = -15f;
+    public float SplatTime = 2f;
 
     [Header("Jump Checks")]
     public bool IsGrounded = false;
     public bool IsJumping = false;
     public bool IsFalling = true;
     public bool IsFlying = false;
+    public bool IsSplat = false;
 
     [Header("Fuel")]
     public float MaxFuel = 100f;

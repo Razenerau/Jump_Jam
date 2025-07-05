@@ -27,6 +27,7 @@ public class PlayerView : MonoBehaviour
         Animator.SetBool("isFalling", PlayerModel.IsFalling);
         Animator.SetBool("isJumping", PlayerModel.IsJumping);
         Animator.SetBool("isFlying",  PlayerModel.IsFlying);
+        Animator.SetBool("isSplat", PlayerModel.IsSplat);
     }
 
 

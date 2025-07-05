@@ -129,6 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         if (PlayerModel.IsFlying && PlayerModel.CurrentFuel > 0)
         {
+            D
             float flyMultiplier = Rb.velocity.y < -10 ? PlayerModel.FlyMultiplier : 1;
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.FlyForce * flyMultiplier);
             Rb.velocity += newVelocity;
@@ -152,6 +153,13 @@ public class PlayerController : MonoBehaviour
     //=============================================================================================
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (Rb.velocity.y <= PlayerModel.SplatVelocity)
+        {
+            Debug.Log("Splat!");
+            PlayerSplat playerSplat = GetComponent<PlayerSplat>();
+            playerSplat.SetSplat();
+        }
+       
         PlayerModel.IsGrounded = true;
         PlayerModel.IsFalling = false;
         PlayerModel.IsJumping = false;
