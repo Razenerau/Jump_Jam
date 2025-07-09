@@ -115,11 +115,6 @@ public class PlayerController : MonoBehaviour
         float newXVelocity = horizontal * speed;
 
         Rb.velocity = new Vector2(newXVelocity, Rb.velocity.y);
-
-        if(PlayerModel.IsSplat)
-        {
-            Rb.velocity = Vector2.zero;
-        }
     }
 
     private void Gravity()
@@ -134,7 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         if (PlayerModel.IsFlying && PlayerModel.CurrentFuel > 0)
         {
-            
+            D
             float flyMultiplier = Rb.velocity.y < -10 ? PlayerModel.FlyMultiplier : 1;
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.FlyForce * flyMultiplier);
             Rb.velocity += newVelocity;

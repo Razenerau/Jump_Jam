@@ -8,9 +8,8 @@ public class PlayerSplat : MonoBehaviour
     {
         PlayerModel playerModel = GetComponent<PlayerModel>();
         playerModel.IsSplat = true;
-
-        Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
-        rigidbody2D.isKinematic = true;
+        
+        
 
         StartCoroutine(SplatTime());
     }
@@ -22,11 +21,9 @@ public class PlayerSplat : MonoBehaviour
         controller.enabled = false;
 
         PlayerModel playerModel = GetComponent<PlayerModel>();
+        Debug.Log("No Movenment");
         yield return new WaitForSeconds(playerModel.SplatTime);
         playerModel.IsSplat = false;
-
-        Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
-        rigidbody2D.isKinematic = false;
 
         controller.enabled = true;
     }
