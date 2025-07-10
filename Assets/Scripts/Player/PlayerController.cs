@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour
         ClampVelocityY();
 
         Movement(); // Clamps X velocity
-
-        
     }
 
     private void ClampVelocityY()
@@ -134,7 +132,7 @@ public class PlayerController : MonoBehaviour
     {
         if (PlayerModel.IsFlying && PlayerModel.CurrentFuel > 0)
         {
-            
+            //Debug.Log("Flying");
             float flyMultiplier = Rb.velocity.y < -10 ? PlayerModel.FlyMultiplier : 1;
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.FlyForce * flyMultiplier);
             Rb.velocity += newVelocity;
@@ -148,6 +146,7 @@ public class PlayerController : MonoBehaviour
     {
         if (PlayerModel.IsJumping && Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("Jumped");
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
             Rb.velocity = newVelocity;
         }

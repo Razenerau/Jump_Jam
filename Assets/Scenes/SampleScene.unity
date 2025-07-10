@@ -18894,7 +18894,7 @@ MonoBehaviour:
   RunningSpeed: 7
   IsRunning: 0
   JumpForce: 8
-  FlyForce: 0.04
+  FlyForce: 0.4
   FlyMultiplier: 4.5
   MaxYVelocity: 25
   GravityVector: {x: 0, y: -9.81}
