@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
 {
-    //[Header("Components")]
-    //public BoxCollider2D BoxCollider;
-    
+    [Header("Input")]
+    public float Horizontal;
+    public bool IsJumpPressed = false;
+    public bool IsJumpHeld = false;
+    public bool IsRunning = false;
+
     [Header("Movement Variables")]
     public float WalkingSpeed = 5;
     public float RunningSpeed = 7;
-    public bool IsRunning = false;
 
     [Header("Jump/Fly Variables")]
-    public bool IsJumpPressed = false;
     public float JumpForce = 2f;
     public float FlyForce = 0.1f;
     public float FlyMultiplier = 4f;

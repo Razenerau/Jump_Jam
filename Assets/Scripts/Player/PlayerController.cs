@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
     // All checks happen in Update
     void Update()
     {
-        RunningCheck();
+        UptadeInput();
+
+        //RunningCheck();
 
         JumpOrFlyCheck();
 
@@ -112,6 +114,30 @@ public class PlayerController : MonoBehaviour
     //                      MOVEMENT
     //=============================================================================================
 
+    private void UptadeInput()
+    {
+        PlayerModel.Horizontal = Input.GetAxis("Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            PlayerModel.IsRunning = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+        {
+            PlayerModel.IsRunning = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            PlayerModel.IsJumpPressed = true;
+            PlayerModel.IsJumpHeld = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            PlayerModel.IsJumpHeld = false;
+        }
+
+    }
     private void Movement()
     {
         float horizontal = Input.GetAxis("Horizontal");
