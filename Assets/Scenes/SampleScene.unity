@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a66adc7da5ad456a97d84da15a5b3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetFrameRate: 30
+  targetFrameRate: 60
 --- !u!1 &778001973
 GameObject:
   m_ObjectHideFlags: 0
@@ -18904,9 +18904,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05b1284d3c8a8844b8460fb89cd263b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Horizontal: 0
+  IsJumpPressed: 0
+  IsJumpHeld: 0
+  IsRunning: 0
   WalkingSpeed: 5
   RunningSpeed: 7
-  IsRunning: 0
   JumpForce: 8
   FlyForce: 0.4
   FlyMultiplier: 4.5
@@ -18922,7 +18925,7 @@ MonoBehaviour:
   IsSplat: 0
   MaxFuel: 100
   CurrentFuel: 100
-  FuelDecrement: 0.1
+  FuelDecrement: 1
 --- !u!61 &1888259690628826695
 BoxCollider2D:
   m_ObjectHideFlags: 0

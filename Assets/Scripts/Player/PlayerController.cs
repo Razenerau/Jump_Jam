@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour
     {
         UptadeInput();
 
-        //RunningCheck();
-
         JumpOrFlyCheck();
 
         FallCheck();
@@ -40,7 +38,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement(); 
+        Movement();
+
+        Jump();
+
+        Fly();
     }
 
     private void ClampVelocityY()
@@ -97,7 +99,7 @@ public class PlayerController : MonoBehaviour
             PlayerModel.IsFlying = false;
         }
 
-        if(PlayerModel.CurrentFuel < 0)
+        if(PlayerModel.CurrentFuel <= 0)
         {
             PlayerModel.IsFlying = false;
         }
@@ -140,7 +142,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Movement()
     {
-        float horizontal = Input.GetAxis("Horizontal");
+        float horizontal = PlayerModel.Horizontal;
         float speed = PlayerModel.IsRunning ? PlayerModel.RunningSpeed : PlayerModel.WalkingSpeed;
         float newXVelocity = horizontal * speed;
 
@@ -176,9 +178,10 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (PlayerModel.IsJumping && Input.GetKeyDown(KeyCode.Space))
+        if (PlayerModel.IsJumping && PlayerModel.IsJumpPressed)
         {
             //Debug.Log("Jumped");
+            PlayerModel.IsJumpPressed = false;
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
             Rb.velocity = newVelocity;
         }
