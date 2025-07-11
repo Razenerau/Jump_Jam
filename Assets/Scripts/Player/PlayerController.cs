@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
         Jump();
 
         Fly();
+
+        Gravity();
     }
 
     private void ClampVelocityY()
@@ -156,7 +158,7 @@ public class PlayerController : MonoBehaviour
 
     private void Gravity()
     {
-        if (!PlayerModel.IsGrounded && !Input.GetKey(KeyCode.Space))
+        if (!PlayerModel.IsGrounded && !PlayerModel.IsJumpHeld)
         {
             Rb.velocity += PlayerModel.GravityVector * (PlayerModel.FallForce * Time.deltaTime);
         }
