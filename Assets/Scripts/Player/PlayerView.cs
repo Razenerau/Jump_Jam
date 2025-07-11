@@ -18,7 +18,7 @@ public class PlayerView : MonoBehaviour
 
     public void SetDirecion(float xVelocity)
     {
-        SpriteRenderer.flipX = xVelocity > 0 ? true : false;
+        SpriteRenderer.flipX = xVelocity >= 0 ? true : false;
     }
 
     public void SetBools()
@@ -28,6 +28,7 @@ public class PlayerView : MonoBehaviour
         Animator.SetBool("isJumping", PlayerModel.IsJumping);
         Animator.SetBool("isFlying",  PlayerModel.IsFlying);
         Animator.SetBool("isSplat", PlayerModel.IsSplat);
+        Animator.SetBool("isJumpPressed", PlayerModel.IsJumpPressed);
     }
 
 

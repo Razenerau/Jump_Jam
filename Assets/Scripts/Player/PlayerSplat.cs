@@ -18,7 +18,7 @@ public class PlayerSplat : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         PlayerController controller = GetComponent<PlayerController>();
-        controller.enabled = false;
+        //controller.enabled = false;
 
         PlayerModel playerModel = GetComponent<PlayerModel>();
         yield return new WaitForSeconds(playerModel.SplatTime);
@@ -26,6 +26,6 @@ public class PlayerSplat : MonoBehaviour
 
         Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
 
-        controller.enabled = true;
+        //controller.enabled = true;
     }
 }

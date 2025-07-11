@@ -21,25 +21,8 @@ public class PlayerController : MonoBehaviour
         PlayerView.SetVelocity(Rb.velocity);
     }
 
-    // All movement happens in Late Update 
-    /*
-    void LateUpdate()
-    {
-        Jump();
-
-        Fly();
-
-        Gravity();
-
-        ClampVelocityY();
-
-        Movement(); // Clamps X velocity
-    }*/
-
     void FixedUpdate()
     {
-        Movement();
-
         Jump();
 
         Fly();
@@ -47,6 +30,8 @@ public class PlayerController : MonoBehaviour
         Gravity();
 
         ClampVelocityY();
+
+        Movement();
     }
 
     private void ClampVelocityY()
@@ -94,6 +79,11 @@ public class PlayerController : MonoBehaviour
             if (PlayerModel.IsGrounded)
             {
                 PlayerModel.IsJumping = true;
+            }
+
+            if (PlayerModel.IsFalling && PlayerModel.CurrentFuel <= 0)
+            {
+                PlayerModel.IsJumpPressed = true;
             }
         }
 
@@ -182,7 +172,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (PlayerModel.IsJumping && PlayerModel.IsJumpPressed)
+        if (PlayerModel.IsGrounded && PlayerModel.IsJumpPressed && !PlayerModel.IsFlying)
         {
             //Debug.Log("Jumped");
             PlayerModel.IsJumpPressed = false;
