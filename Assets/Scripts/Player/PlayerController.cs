@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
         PlayerView.SetVelocity(Rb.velocity);
     }
 
-    // All movement happens in Late Update
+    // All movement happens in Late Update 
+    /*
     void LateUpdate()
     {
         Jump();
@@ -33,6 +34,11 @@ public class PlayerController : MonoBehaviour
         ClampVelocityY();
 
         Movement(); // Clamps X velocity
+    }*/
+
+    void FixedUpdate()
+    {
+        Movement(); 
     }
 
     private void ClampVelocityY()
@@ -146,7 +152,7 @@ public class PlayerController : MonoBehaviour
     {
         if (PlayerModel.IsJumping && Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Jumped");
+            //Debug.Log("Jumped");
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.JumpForce);
             Rb.velocity = newVelocity;
         }

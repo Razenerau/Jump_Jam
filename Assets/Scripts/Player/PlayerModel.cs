@@ -13,6 +13,7 @@ public class PlayerModel : MonoBehaviour
     public bool IsRunning = false;
 
     [Header("Jump/Fly Variables")]
+    public bool IsJumpPressed = false;
     public float JumpForce = 2f;
     public float FlyForce = 0.1f;
     public float FlyMultiplier = 4f;
