@@ -10,7 +10,6 @@ public class PlayerSplat : MonoBehaviour
         playerModel.IsSplat = true;
 
         Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
-        rigidbody2D.isKinematic = true;
 
         StartCoroutine(SplatTime());
     }
@@ -26,7 +25,6 @@ public class PlayerSplat : MonoBehaviour
         playerModel.IsSplat = false;
 
         Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
-        rigidbody2D.isKinematic = false;
 
         controller.enabled = true;
     }

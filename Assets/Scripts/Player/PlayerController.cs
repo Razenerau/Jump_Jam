@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
         Fly();
 
         Gravity();
+
+        ClampVelocityY();
     }
 
     private void ClampVelocityY()
