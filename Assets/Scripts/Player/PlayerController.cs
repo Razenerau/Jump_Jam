@@ -17,8 +17,7 @@ public class PlayerController : MonoBehaviour
 
         FallCheck();
 
-        PlayerView.SetBools();
-        PlayerView.SetVelocity(Rb.velocity);
+        
     }
 
     void FixedUpdate()
@@ -32,6 +31,9 @@ public class PlayerController : MonoBehaviour
         ClampVelocityY();
 
         Movement();
+
+        PlayerView.SetBools();
+        PlayerView.SetVelocity(Rb.velocity);
     }
 
     private void ClampVelocityY()
@@ -160,6 +162,7 @@ public class PlayerController : MonoBehaviour
     {
         if (PlayerModel.IsFlying && PlayerModel.CurrentFuel > 0)
         {
+            PlayerModel.IsJumpPressed = false;
             //Debug.Log("Flying");
             float flyMultiplier = Rb.velocity.y < -10 ? PlayerModel.FlyMultiplier : 1;
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.FlyForce * flyMultiplier);
