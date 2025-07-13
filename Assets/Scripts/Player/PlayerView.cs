@@ -31,5 +31,16 @@ public class PlayerView : MonoBehaviour
         Animator.SetBool("isJumpPressed", PlayerModel.IsJumpPressed);
     }
 
+    private void Update()
+    {
+        if (PlayerModel.IsFlying && !SoundManager.Instance.IsPlaying())
+        {
+            SoundManager.StartRocketSound();
+        }
+        if(!PlayerModel.IsFlying && SoundManager.Instance.IsPlaying())
+        {
+            SoundManager.StopRocketSound();
+        }
+    }
 
 }

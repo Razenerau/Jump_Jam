@@ -24,6 +24,8 @@ public class PlayerCollision : MonoBehaviour {
                     float fuelAmount = fuelData.FuelAmount;
                     playerController.AddFuel(fuelAmount);
 
+                    SoundManager.PlaySound(SoundType.FUEL, (0.75f + fuelAmount/100));
+
                     Destroy(collision.gameObject);
                 break;
             }

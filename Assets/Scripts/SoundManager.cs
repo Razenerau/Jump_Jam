@@ -17,13 +17,12 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
     public AudioSource AudioSource;
+    public AudioSource RocketAudioSource;
     [SerializeField] private AudioClip[] _soundList;
     void Awake()
     {
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
-        
-        AudioSource = GetComponent<AudioSource>();
     }
 
     public static void PlaySound(SoundType sound, float volume = 1f)
@@ -33,7 +32,7 @@ public class SoundManager : MonoBehaviour
 
     public static void StartRocketSound(SoundType sound = SoundType.ROCKET, float volume = 1f, float pitch = 1f)
     {
-        AudioSource source = Instance.AudioSource;
+        AudioSource source = Instance.RocketAudioSource;
         source.clip = Instance._soundList[(int)sound];
         source.volume = volume;
         source.pitch = pitch;
@@ -41,7 +40,19 @@ public class SoundManager : MonoBehaviour
     }
     public static void StopRocketSound(SoundType sound = SoundType.ROCKET, float volume = 1f, float pitch = 1f)
     {
-        AudioSource source = Instance.AudioSource;
+        AudioSource source = Instance.RocketAudioSource;
         source.Stop();
+    }
+
+    public bool IsPlaying()
+    {
+        if (Instance.RocketAudioSource.isPlaying)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
