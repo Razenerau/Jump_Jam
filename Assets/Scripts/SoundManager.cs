@@ -26,9 +26,22 @@ public class SoundManager : MonoBehaviour
         AudioSource = GetComponent<AudioSource>();
     }
 
-    public static void PlaySound(SoundType sound, float volume = 1)
+    public static void PlaySound(SoundType sound, float volume = 1f)
     {
         Instance.AudioSource.PlayOneShot(Instance._soundList[(int)sound], volume);
-        Debug.Log($"{(int)sound} played");
+    }
+
+    public static void StartRocketSound(SoundType sound = SoundType.ROCKET, float volume = 1f, float pitch = 1f)
+    {
+        AudioSource source = Instance.AudioSource;
+        source.clip = Instance._soundList[(int)sound];
+        source.volume = volume;
+        source.pitch = pitch;
+        source.Play();
+    }
+    public static void StopRocketSound(SoundType sound = SoundType.ROCKET, float volume = 1f, float pitch = 1f)
+    {
+        AudioSource source = Instance.AudioSource;
+        source.Stop();
     }
 }

@@ -523,7 +523,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -619,12 +619,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
   _soundList:
-  - {fileID: 8300000, guid: e30bb1e5cbd175f45af5687c1e73f0ac, type: 3}
+  - {fileID: 8300000, guid: e86dc00a54121db40bc33bf8bf87ddf8, type: 3}
   - {fileID: 0}
   - {fileID: 8300000, guid: 5053d389d8041224bac138277d9f987f, type: 3}
   - {fileID: 8300000, guid: ee1080cb629bf8645882438e00b7cfc3, type: 3}
   - {fileID: 8300000, guid: a776a0af7ef67c7449a849b2da5270e4, type: 3}
-  - {fileID: 8300000, guid: e30bb1e5cbd175f45af5687c1e73f0ac, type: 3}
+  - {fileID: 8300000, guid: aa793e5e55499e341837e3488fc43b64, type: 3}
 --- !u!4 &1076693371
 Transform:
   m_ObjectHideFlags: 0
