@@ -21,8 +21,10 @@ public class PlayerModel : MonoBehaviour
     public float MaxYVelocity = 25f;
     public Vector2 GravityVector;
     public float FallForce = 2f;
-    public float SplatVelocity = -15f;
+    public float SplatVelocity = -24f;
     public float SplatTime = 2f;
+    public float FallingTime = 0f;
+    public float TimeNeededToSplat = 0f;
 
     [Header("Jump Checks")]
     public bool IsGrounded = false;

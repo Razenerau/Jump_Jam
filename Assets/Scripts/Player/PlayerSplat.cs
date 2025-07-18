@@ -22,6 +22,7 @@ public class PlayerSplat : MonoBehaviour
 
         PlayerModel playerModel = GetComponent<PlayerModel>();
         yield return new WaitForSeconds(playerModel.SplatTime);
+        playerModel.SplatTime = (playerModel.SplatTime / 2f) > 0.5f ? (playerModel.SplatTime / 2f) : 0.5f;
         playerModel.IsSplat = false;
 
         Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();

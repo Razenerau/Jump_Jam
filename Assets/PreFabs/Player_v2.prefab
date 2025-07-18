@@ -245,6 +245,8 @@ MonoBehaviour:
   FallForce: 4
   SplatVelocity: -22
   SplatTime: 2
+  FallingTime: 0
+  TimeNeededToSplat: 0.4
   IsGrounded: 0
   IsJumping: 0
   IsFalling: 0

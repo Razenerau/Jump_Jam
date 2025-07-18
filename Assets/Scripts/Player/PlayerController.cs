@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
         Gravity();
 
+        SplatCountdown();
+
         ClampVelocityY();
 
         Movement();
@@ -47,6 +49,18 @@ public class PlayerController : MonoBehaviour
         float newFuel = PlayerModel.CurrentFuel + num;
         PlayerModel.CurrentFuel = newFuel >= PlayerModel.MaxFuel ? PlayerModel.MaxFuel : newFuel;
         FuelBarController.Instance.SetFillAmount(PlayerModel.CurrentFuel);
+    }
+
+    private void SplatCountdown()
+    {
+        if (Rb.velocity.y <= PlayerModel.SplatVelocity)
+        {
+            PlayerModel.FallingTime += Time.deltaTime;
+        }
+        else
+        {
+            PlayerModel.FallingTime = 0f;
+        }
     }
 
     //=============================================================================================
@@ -189,7 +203,8 @@ public class PlayerController : MonoBehaviour
     //=============================================================================================
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Rb.velocity.y <= PlayerModel.SplatVelocity)
+        if (collision.gameObject.tag != "Ground") return;
+        if (PlayerModel.TimeNeededToSplat <= PlayerModel.FallingTime)//Rb.velocity.y <= PlayerModel.SplatVelocity)
         {
             Debug.Log("Splat!");
             PlayerSplat playerSplat = GetComponent<PlayerSplat>();
