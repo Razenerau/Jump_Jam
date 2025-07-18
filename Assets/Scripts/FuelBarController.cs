@@ -12,6 +12,8 @@ public class FuelBarController : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        SetFillAmount(playerModel.CurrentFuel);
     }
 
     public void SetFillAmount(float fuelAmount)
