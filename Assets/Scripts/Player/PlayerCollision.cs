@@ -6,8 +6,10 @@ public class PlayerCollision : MonoBehaviour {
         switch (collision.tag) {
             case "Death":
             {
-                    string thisLevel = SceneManager.GetActiveScene().name;
-                    SceneManager.LoadScene(thisLevel);   
+                    //string thisLevel = SceneManager.GetActiveScene().name;
+                    //SceneManager.LoadScene(thisLevel);   
+
+                    SceneManager.LoadScene("LVL1_2");  
                 break;
             }
             case "Finish":
