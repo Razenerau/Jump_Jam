@@ -51,6 +51,12 @@ public class PlayerController : MonoBehaviour
         FuelBarController.Instance.SetFillAmount(PlayerModel.CurrentFuel);
     }
 
+    public void SetFuel(float num)
+    {
+        PlayerModel.CurrentFuel = num;
+        FuelBarController.Instance.SetFillAmount(PlayerModel.CurrentFuel);
+    }
+
     private void SplatCountdown()
     {
         if (Rb.velocity.y <= PlayerModel.SplatVelocity)
@@ -182,8 +188,16 @@ public class PlayerController : MonoBehaviour
             Vector2 newVelocity = new Vector2(Rb.velocity.x, PlayerModel.FlyForce * flyMultiplier);
             Rb.velocity += newVelocity;
 
-            PlayerModel.CurrentFuel -= PlayerModel.FuelDecrement;
-            FuelBarController.Instance.SetFillAmount(PlayerModel.CurrentFuel);
+            if(PlayerModel.CurrentFuelTimer > 0)
+            {
+                PlayerModel.CurrentFuelTimer -= Time.deltaTime;
+                return;
+            }
+            else
+            {
+                PlayerModel.CurrentFuel -= PlayerModel.FuelDecrement;
+                FuelBarController.Instance.SetFillAmount(PlayerModel.CurrentFuel);
+            }
         }
     }
 
@@ -214,6 +228,7 @@ public class PlayerController : MonoBehaviour
         PlayerModel.IsGrounded = true;
         PlayerModel.IsFalling = false;
         PlayerModel.IsJumping = false;
+        PlayerModel.CurrentFuelTimer = PlayerModel.FuelTimerMarginTime;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

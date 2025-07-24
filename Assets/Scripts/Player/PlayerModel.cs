@@ -25,6 +25,8 @@ public class PlayerModel : MonoBehaviour
     public float SplatTime = 2f;
     public float FallingTime = 0f;
     public float TimeNeededToSplat = 0f;
+    public float FuelTimerMarginTime = 0.3f;
+    public float CurrentFuelTimer = 0.3f;
 
     [Header("Jump Checks")]
     public bool IsGrounded = false;
