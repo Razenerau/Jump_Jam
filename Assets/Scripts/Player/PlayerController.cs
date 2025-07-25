@@ -220,7 +220,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag != "Ground") return;
         if (PlayerModel.TimeNeededToSplat <= PlayerModel.FallingTime)//Rb.velocity.y <= PlayerModel.SplatVelocity)
         {
-            Debug.Log("Splat!");
             PlayerSplat playerSplat = GetComponent<PlayerSplat>();
             playerSplat.SetSplat();
         }
