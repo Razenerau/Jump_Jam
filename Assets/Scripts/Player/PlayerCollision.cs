@@ -2,14 +2,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour {
+
+    public CinemachineView CinemachineView;
+
     private void OnTriggerEnter2D(Collider2D collision) { 
         switch (collision.tag) {
             case "Death":
             {
-                    //string thisLevel = SceneManager.GetActiveScene().name;
-                    //SceneManager.LoadScene(thisLevel);   
+                string thisLevel = SceneManager.GetActiveScene().name;
+                SceneManager.LoadScene(thisLevel);   
 
-                    SceneManager.LoadScene("LVL1_2");  
+                    //SceneManager.LoadScene("LVL1_2");  
                 break;
             }
             case "Finish":
@@ -29,6 +32,16 @@ public class PlayerCollision : MonoBehaviour {
                     SoundManager.PlaySound(SoundType.FUEL, (0.75f + fuelAmount/100));
 
                     Destroy(collision.gameObject);
+                break;
+            }
+            case "CamTrigger":
+            {
+                    Debug.Log("collided with camera trigger");
+                    CameraTrigger cameraTrigger = collision.gameObject.GetComponent<CameraTrigger>();
+                    PolygonCollider2D newCameraPath = cameraTrigger.CameraPath;
+                    float newCameraSize = cameraTrigger.CameraSize;
+                    CinemachineView.SetCameraPath(newCameraPath);
+                    CinemachineView.SetSize(newCameraSize);
                 break;
             }
         }
