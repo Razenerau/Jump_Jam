@@ -42,12 +42,4 @@ public class PuzzleController : MonoBehaviour
             originalObject.SetActive(false);
         }
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ResetPuzzle();  
-        }
-    }
 }
