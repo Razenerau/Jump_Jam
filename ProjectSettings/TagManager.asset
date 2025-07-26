@@ -8,6 +8,7 @@ TagManager:
   - CheckPoint
   - Fuel
   - Ground
+  - CamTrigger
   layers:
   - Default
   - TransparentFX
