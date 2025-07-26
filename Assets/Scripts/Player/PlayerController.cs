@@ -138,9 +138,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-            PlayerModel.IsRunning = true;
+            
+            PlayerModel.IsRunning = PlayerModel.IsRunningToggleable ? !PlayerModel.IsRunning : true;
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+        if ((Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift)) && !PlayerModel.IsRunningToggleable)
         {
             PlayerModel.IsRunning = false;
         }

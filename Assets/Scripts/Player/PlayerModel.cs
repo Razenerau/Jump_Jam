@@ -9,6 +9,7 @@ public class PlayerModel : MonoBehaviour
     public bool IsJumpPressed = false;
     public bool IsJumpHeld = false;
     public bool IsRunning = false;
+    public bool IsRunningToggleable = true;
 
     [Header("Movement Variables")]
     public float WalkingSpeed = 5;
