@@ -36,7 +36,6 @@ public class PlayerCollision : MonoBehaviour {
             }
             case "CamTrigger":
             {
-                    Debug.Log("collided with camera trigger");
                     CameraTrigger cameraTrigger = collision.gameObject.GetComponent<CameraTrigger>();
                     PolygonCollider2D newCameraPath = cameraTrigger.CameraPath;
                     float newCameraSize = cameraTrigger.CameraSize;

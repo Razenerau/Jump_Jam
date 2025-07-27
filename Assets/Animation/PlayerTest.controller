@@ -613,6 +613,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sound: 5
+  _hasRequirements: 1
+  _requiredValue: -22
+  _requiredParameterName: yVelocity
 --- !u!114 &5096528999188970055
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -626,6 +629,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sound: 5
+  _hasRequirements: 0
+  _requiredValue: 0
+  _requiredParameterName: 
 --- !u!114 &6267919801336175236
 MonoBehaviour:
   m_ObjectHideFlags: 1
