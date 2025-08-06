@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac3aa3f03e0ba24c8ed6f23f2476d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CinemachineView: {fileID: 0}
 --- !u!114 &2829698203734337745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +236,7 @@ MonoBehaviour:
   IsJumpPressed: 0
   IsJumpHeld: 0
   IsRunning: 0
+  IsRunningToggleable: 1
   WalkingSpeed: 5
   RunningSpeed: 7
   JumpForce: 8.2
@@ -247,6 +249,8 @@ MonoBehaviour:
   SplatTime: 2
   FallingTime: 0
   TimeNeededToSplat: 0.4
+  FuelTimerMarginTime: 0.2
+  CurrentFuelTimer: 0.2
   IsGrounded: 0
   IsJumping: 0
   IsFalling: 0

@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88fac2235bc1914a833dd8993db3012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResetButton: {fileID: 4415416033723708075}
   PlayerController: {fileID: 0}
   PuzzleObjects:
   - {fileID: 0}

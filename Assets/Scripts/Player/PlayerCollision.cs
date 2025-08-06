@@ -31,6 +31,9 @@ public class PlayerCollision : MonoBehaviour {
 
                     SoundManager.PlaySound(SoundType.FUEL, (0.75f + fuelAmount/100));
 
+                    PuzzleController puzzleController = fuelData.PuzzleController;
+                    puzzleController.SetResetActive(true);
+
                     Destroy(collision.gameObject);
                 break;
             }

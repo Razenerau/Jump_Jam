@@ -19,7 +19,6 @@ public class FuelBarController : MonoBehaviour
 
     public void SetFillAmount(float fuelAmount)
     {
-        Debug.Log("Filled " + gameObject.name);
         float totalFuel = playerModel.MaxFuel;
         float percentage = fuelAmount / totalFuel;
         image.fillAmount = (0.25f * percentage);

@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class PuzzleController : MonoBehaviour
 {
+    public GameObject ResetButton;
     public PlayerController PlayerController;
-    public List<GameObject> PuzzleObjects;
-    public List<GameObject> ResettableObjects = new();
+    public List<GameObject> PuzzleObjects;                  //Loaded in the editor
+    public List<GameObject> ResettableObjects = new();      //Filled with clones of puzzleObjects
 
-    void Start()
+    public float ResetFuelTo = 0;
+    public bool IsActive = false;
+
+    void Awake()
+    {
+        SetResetActive(false);
+        InitializeResettableObjects();
+    }
+
+    private void InitializeResettableObjects()
     {
         foreach (var originalObject in PuzzleObjects)
         {
@@ -17,6 +27,12 @@ public class PuzzleController : MonoBehaviour
 
             clone.SetActive(true);
             ResettableObjects.Add(clone);
+
+            FuelData fuelData = clone.GetComponent<FuelData>();
+            if (fuelData != null)
+            {
+                fuelData.PuzzleController = this;
+            }
 
             originalObject.SetActive(false);
         }
@@ -24,22 +40,43 @@ public class PuzzleController : MonoBehaviour
 
     public void ResetPuzzle()
     {
-        PlayerController.SetFuel(0);
+        if (!IsActive) return;
+
+        PlayerController.SetFuel(ResetFuelTo);
         ResettableObjects.Clear();
         foreach (Transform child in this.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
 
-        foreach (var originalObject in PuzzleObjects)
+        InitializeResettableObjects();
+        SetResetActive(false);
+    }
+
+    public void SetResetActive(bool isActive)
+    {
+        IsActive = isActive;
+
+        SpriteRenderer spriteRenderer = ResetButton.GetComponent<SpriteRenderer>();
+
+        switch (isActive)
         {
-            GameObject clone = Instantiate(originalObject, originalObject.transform.position,
-                                           Quaternion.identity, this.transform);
+            case true:
+                spriteRenderer.color = Color.white;
+                break;
 
-            clone.SetActive(true);
-            ResettableObjects.Add(clone);
+            case false:
+                spriteRenderer.color = Color.gray;
+                break;
+        }
+    }
 
-            originalObject.SetActive(false);
+    private void SetPuzzleControllerToFuel(GameObject obj)
+    {
+        FuelData fuelData = obj.GetComponent<FuelData>();
+        if (fuelData != null)
+        {
+            fuelData.PuzzleController = this;
         }
     }
 }
