@@ -6,9 +6,13 @@ public class PuzzleController : MonoBehaviour
 {
     public GameObject ResetButton;
     public PlayerController PlayerController;
+
+    [Header("Puzzle Componets")]
+    public PuzzleController OtherPuzzle;
     public List<GameObject> PuzzleObjects;                  //Loaded in the editor
     public List<GameObject> ResettableObjects = new();      //Filled with clones of puzzleObjects
 
+    [Header("Variables")]
     public float ResetFuelTo = 0;
     public bool IsActive = false;
 
@@ -40,7 +44,14 @@ public class PuzzleController : MonoBehaviour
 
     public void ResetPuzzle()
     {
+        Debug.Log(gameObject + " puzzle reset");
         if (!IsActive) return;
+        if(OtherPuzzle != null)
+        {
+            Debug.Log("other plzzle reset");
+            OtherPuzzle.ResetPuzzle();
+            OtherPuzzle.InitializeResettableObjects();
+        }
 
         PlayerController.SetFuel(ResetFuelTo);
         ResettableObjects.Clear();
