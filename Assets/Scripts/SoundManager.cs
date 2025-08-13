@@ -9,7 +9,10 @@ public enum SoundType
     SPLAT,
     ROCKET,
     FUEL,
-    LAND
+    LAND,
+
+    DOOR_OPEN,
+    DOOR_LOCKED
 }
 
 [RequireComponent(typeof(AudioSource))]

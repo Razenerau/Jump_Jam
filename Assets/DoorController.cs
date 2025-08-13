@@ -6,7 +6,6 @@ public class DoorController : MonoBehaviour
 {
     public GameObject OtherDoor;
     public GameObject Player;
-    public DoorData DoorData;
 
     public void Teleport()
     {
@@ -17,17 +16,15 @@ public class DoorController : MonoBehaviour
 
         }
 
-        
-        if (OtherDoor == null)
-        {
-            Debug.Log("Odher door not found");
-            OtherDoor = GameObject.FindGameObjectWithTag("Door");
-        }
-
         if (OtherDoor != null)
         {
             Debug.Log("Teleported");
             Player.transform.position = OtherDoor.transform.position;
+            SoundManager.PlaySound(SoundType.DOOR_OPEN);
+        }
+        else
+        {
+            SoundManager.PlaySound(SoundType.DOOR_LOCKED);
         }
         
     }
