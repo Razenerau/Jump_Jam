@@ -7,6 +7,10 @@ public class DoorController : MonoBehaviour
     public GameObject OtherDoor;
     public GameObject Player;
 
+    [Header("Sprites")]
+    public Sprite OpenDoorSprite;
+    public Sprite ClosedDoorSprite;
+
     public void Teleport()
     {
         if(Player == null)
@@ -21,24 +25,39 @@ public class DoorController : MonoBehaviour
         }
         else
         {
-            StartCoroutine(TeleportAfterDelay());
-            Debug.Log("Teleported");
-            
+            StartCoroutine(TeleportAfterDelay());   
         }
         
     }
 
     private IEnumerator TeleportAfterDelay()
     {
+        SetDoorOpen(true);
+
         SoundManager.PlaySound(SoundType.DOOR_OPEN);
         PlayerController playerController = Player.GetComponent<PlayerController>();
         playerController.enabled = false;
         Player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        Player.GetComponent<PlayerModel>().IsGrounded = true;
+        //Player.GetComponent<Animator>().SetBool("isGrounded") = true;
 
         yield return new WaitForSeconds(1f); // Wait for 1 second
         Player.transform.position = OtherDoor.transform.position;
         playerController.enabled = true;
+
+        SetDoorOpen(false);
     }
 
+    private void SetDoorOpen(bool isOpen)
+    {
+        SpriteRenderer doorSpriteRenderer =  gameObject.GetComponentInChildren<SpriteRenderer>();
+        
+        if (isOpen)
+        {
+            doorSpriteRenderer.sprite = OpenDoorSprite;
+        }
+        else
+        {
+            doorSpriteRenderer.sprite = ClosedDoorSprite;
+        }
+    }
 }
