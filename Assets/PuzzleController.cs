@@ -44,13 +44,11 @@ public class PuzzleController : MonoBehaviour
 
     public void ResetPuzzle()
     {
-        Debug.Log(gameObject + " puzzle reset");
         if (!IsActive) return;
         if(OtherPuzzle != null)
         {
             Debug.Log("other plzzle reset");
             OtherPuzzle.ResetPuzzle();
-            OtherPuzzle.InitializeResettableObjects();
         }
 
         PlayerController.SetFuel(ResetFuelTo);
