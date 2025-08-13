@@ -1,0 +1,370 @@
+fileFormatVersion: 2
+guid: f9b95994a9583f84a8d4cad9c4ff2fc3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Level_1_Tiles_Alt_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1997
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -45, y: 51}
+        - {x: -129, y: -145}
+        - {x: -134.0332, y: -499.7558}
+        - {x: 500, y: -499.7558}
+        - {x: 500, y: 153.56451}
+        - {x: 136, y: 141}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4416b1780bfd3c408fc673652126f4f
+      internalID: 500815103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Tiles_Alt_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 327.63675, y: 162.35358}
+        - {x: -236.3281, y: 156.4942}
+        - {x: -499.99997, y: 153.56451}
+        - {x: -499.99997, y: -499.7558}
+        - {x: 500, y: -499.7558}
+        - {x: 500, y: 162.35358}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cedcab73c6666d4e8ca5097619c5ad4
+      internalID: -1848832252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Tiles_Alt_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -144, y: 160}
+        - {x: -499.7558, y: 162.35358}
+        - {x: -499.7558, y: -499.7558}
+        - {x: 153.56451, y: -499.7558}
+        - {x: 150, y: -121}
+        - {x: 40, y: 72}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c584ff571bc5d6141a6171b0324f3f47
+      internalID: 1344713819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Tiles_Alt_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -134.0332, y: 500}
+        - {x: -135.49805, y: -151.36716}
+        - {x: -135.49805, y: -499.99997}
+        - {x: 500, y: -499.99997}
+        - {x: 500, y: 500}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce4ca938d680ca4fb7dd5837268de72
+      internalID: -619811716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Tiles_Alt_4
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ddfd880497105a4289b89bf0a196ce8
+      internalID: -1178539020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Tiles_Alt_5
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -499.7558, y: 500}
+        - {x: -499.7558, y: -499.99997}
+        - {x: 152.09967, y: -499.99997}
+        - {x: 153.56451, y: -321.28903}
+        - {x: 153.56451, y: 500}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ce223c2e449cde49963e501dcb733dc
+      internalID: 856408226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Tiles_Alt_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -136.96289, y: 500}
+        - {x: -140, y: 115}
+        - {x: -65, y: -77}
+        - {x: 113, y: -146}
+        - {x: 500, y: -142.82227}
+        - {x: 500, y: 500}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c16f0bb8ea14c44abf512cd0a100e05
+      internalID: -1106052912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Tiles_Alt_7
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -499.99997, y: 500}
+        - {x: -499.99997, y: -138.42773}
+        - {x: -186.5234, y: -139.89258}
+        - {x: 500, y: -139.89258}
+        - {x: 500, y: 500}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f3adda0c486b948b4abfb2e4c03a88
+      internalID: -935919366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Tiles_Alt_8
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -499.7558, y: 500}
+        - {x: -499.7558, y: -139.89258}
+        - {x: -121, y: -137}
+        - {x: 59, y: -75}
+        - {x: 149, y: 112}
+        - {x: 152.09967, y: 500}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe928a61842e9e49a6de23c5b0beb8c
+      internalID: 1660073196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Level_1_Tiles_Alt_0: 500815103
+      Level_1_Tiles_Alt_1: -1848832252
+      Level_1_Tiles_Alt_2: 1344713819
+      Level_1_Tiles_Alt_3: -619811716
+      Level_1_Tiles_Alt_4: -1178539020
+      Level_1_Tiles_Alt_5: 856408226
+      Level_1_Tiles_Alt_6: -1106052912
+      Level_1_Tiles_Alt_7: -935919366
+      Level_1_Tiles_Alt_8: 1660073196
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

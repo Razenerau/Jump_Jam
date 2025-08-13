@@ -1,0 +1,372 @@
+fileFormatVersion: 2
+guid: f08e737c3574ecf44ae9b14277072beb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Level_1_Sewers_Alt_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 125, y: 153}
+        - {x: -30, y: 47}
+        - {x: -134, y: -128}
+        - {x: -141.35742, y: -499.7558}
+        - {x: 500, y: -499.7558}
+        - {x: 500, y: 159.42389}
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9c233758a078340aee5597e492e3a6
+      internalID: -1182705228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Sewers_Alt_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -398.92575, y: 160.88873}
+        - {x: -499.99997, y: 157.95905}
+        - {x: -499.99997, y: -499.7558}
+        - {x: 500, y: -499.7558}
+        - {x: 500, y: 157.95905}
+        - {x: 195.80081, y: 160.88873}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 370ef1577c45af640af80e9d8140a11b
+      internalID: -2122323416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Sewers_Alt_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -499.7558, y: 156.4942}
+        - {x: -499.7558, y: -499.7558}
+        - {x: 153.56451, y: -499.7558}
+        - {x: 125, y: -92}
+        - {x: 56, y: 65}
+        - {x: -109, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88822beae5c2ef438c4e7f6e2da5027
+      internalID: 304348218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Sewers_Alt_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -141.35742, y: 500}
+        - {x: -142.82227, y: 390.62503}
+        - {x: -142.82227, y: -438.47653}
+        - {x: -139.89258, y: -499.99997}
+        - {x: 500, y: -499.99997}
+        - {x: 500, y: 500}
+      tessellationDetail: 0
+      bones: []
+      spriteID: bac923829cdf42d44aa034fc4e2d5133
+      internalID: -1890267290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Sewers_Alt_4
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d765044c7b6e5584bb4c04184893a526
+      internalID: -1624478387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Sewers_Alt_5
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -499.7558, y: 500}
+        - {x: -499.7558, y: -499.99997}
+        - {x: 156.4942, y: -499.99997}
+        - {x: 156.4942, y: 370.11722}
+        - {x: 152.09967, y: 500}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e49a0f7e012b9b4babf9ff961de371d
+      internalID: 1577119696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Sewers_Alt_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -136.96289, y: 500}
+        - {x: -118, y: 74}
+        - {x: -47, y: -54}
+        - {x: 108, y: -115}
+        - {x: 500, y: -131.10352}
+        - {x: 500, y: 500}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b0c1f95f98b5e44ab6f2ce7e6f5594
+      internalID: -506538546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Sewers_Alt_7
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -499.99997, y: 500}
+        - {x: -499.99997, y: -131.10352}
+        - {x: -168.94528, y: -136.96289}
+        - {x: 229.49222, y: -136.96289}
+        - {x: 500, y: -132.56836}
+        - {x: 500, y: 500}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb30fcc7f6001db4cbcc454c3d9bf1e3
+      internalID: -234549716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level_1_Sewers_Alt_8
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 156.4942, y: 500}
+        - {x: -499.7558, y: 500}
+        - {x: -499.7558, y: -132.56836}
+        - {x: -80.810486, y: -134.0332}
+        - {x: 93, y: -55}
+        - {x: 153, y: 104}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b258a8f583911a4a9bff5f2944e834c
+      internalID: 1017908729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Level_1_Sewers_Alt_0: -1182705228
+      Level_1_Sewers_Alt_1: -2122323416
+      Level_1_Sewers_Alt_2: 304348218
+      Level_1_Sewers_Alt_3: -1890267290
+      Level_1_Sewers_Alt_4: -1624478387
+      Level_1_Sewers_Alt_5: 1577119696
+      Level_1_Sewers_Alt_6: -506538546
+      Level_1_Sewers_Alt_7: -234549716
+      Level_1_Sewers_Alt_8: 1017908729
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
