@@ -6,6 +6,7 @@ public class DoorController : MonoBehaviour
 {
     public GameObject OtherDoor;
     public GameObject Player;
+    public float TeleportTime = 0.5f;
 
     [Header("Sprites")]
     public Sprite OpenDoorSprite;
@@ -40,7 +41,7 @@ public class DoorController : MonoBehaviour
         Player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         //Player.GetComponent<Animator>().SetBool("isGrounded") = true;
 
-        yield return new WaitForSeconds(1f); // Wait for 1 second
+        yield return new WaitForSeconds(TeleportTime); // Wait for 1 second
         Player.transform.position = OtherDoor.transform.position;
         playerController.enabled = true;
 

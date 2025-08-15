@@ -40,4 +40,7 @@ public class PlayerModel : MonoBehaviour
     public float MaxFuel = 100f;
     public float CurrentFuel = 100f;
     public float FuelDecrement = 0.1f;
+
+    [Header("Seeds")]
+    public int SeedsCount = 0;
 }
