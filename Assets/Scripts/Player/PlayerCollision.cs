@@ -46,6 +46,13 @@ public class PlayerCollision : MonoBehaviour {
                     CinemachineView.SetSize(newCameraSize);
                 break;
             }
+            case "Seeds":
+                    PlayerModel playerModel = gameObject.GetComponent<PlayerModel>();
+                    playerModel.SeedsCount++;
+                    Debug.Log(playerModel.SeedsCount);
+                    
+                    Destroy(collision.gameObject);
+                break;
         }
     }
 }

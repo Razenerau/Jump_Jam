@@ -9,7 +9,7 @@ TagManager:
   - Fuel
   - Ground
   - CamTrigger
-  - Door
+  - Seeds
   layers:
   - Default
   - TransparentFX
