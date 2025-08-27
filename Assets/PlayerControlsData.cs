@@ -24,4 +24,5 @@ public class PlayerControlsData : MonoBehaviour
     [Header("Variables")]
     public float PressedOffset;
     public bool IsJumpTutorial;
+    public bool IsShiftGreen;
 }

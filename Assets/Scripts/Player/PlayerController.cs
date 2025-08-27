@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public PlayerModel PlayerModel;
     public PlayerView PlayerView;
     public Rigidbody2D Rb;
+    public PlayerControlsData PCD;
 
     // All checks happen in Update
     void Update()
@@ -138,12 +139,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-            
+            PCD.IsShiftGreen = PlayerModel.IsRunningToggleable ? !PlayerModel.IsRunning : true;
             PlayerModel.IsRunning = PlayerModel.IsRunningToggleable ? !PlayerModel.IsRunning : true;
         }
         if ((Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift)) && !PlayerModel.IsRunningToggleable)
         {
             PlayerModel.IsRunning = false;
+            PCD.IsShiftGreen = false;
         }
 
         if(Input.GetKeyDown(KeyCode.Space))

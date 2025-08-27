@@ -67,7 +67,13 @@ public class PlayerCollision : MonoBehaviour {
                         break;
                     case TutorialModel.Tutorial.Jump:
                         PCW.SetSpaceVisible(true);
+                        PCW.SetColor(PCD.Space_SP, Color.white);
+                        PCW.SetSprite(PlayerControlsController.Sprites.Space);
                         PCD.IsJumpTutorial = true;
+                        break;
+                    case TutorialModel.Tutorial.Run:
+                        PCW.SetSpaceVisible(true);
+                        PCW.SetSprite(PlayerControlsController.Sprites.Shift);
                         break;
                 }
                 break;
@@ -84,6 +90,13 @@ public class PlayerCollision : MonoBehaviour {
             {
                 case TutorialModel.Tutorial.LeftRight:
                     PCW.SetControlsVisible(false);
+                    break;
+                case TutorialModel.Tutorial.Jump:
+                    PCW.SetSpaceVisible(false);
+                    PCD.IsJumpTutorial = false;
+                    break;
+                case TutorialModel.Tutorial.Run:
+                    PCW.SetSpaceVisible(false);
                     break;
             }
         }

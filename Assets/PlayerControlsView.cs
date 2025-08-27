@@ -27,6 +27,7 @@ public class PlayerControlsView : MonoBehaviour
                 break;
             case PlayerControlsController.Sprites.Shift:
                 PCD.Space_SP.sprite = PCD.Shift;
+                if (PCD.IsShiftGreen) SetColor(PCD.Space_SP, Color.green);
                 break;
         }
     }

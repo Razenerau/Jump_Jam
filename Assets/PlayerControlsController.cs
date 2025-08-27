@@ -72,13 +72,28 @@ public class PlayerControlsController : MonoBehaviour
 
         if (Input.GetKeyDown(keyCode1) || Input.GetKeyDown(keyCode2))
         {
-            PCW.SetColor(PCD.Space_SP, Color.green);
             PCW.SetPressed(PCD.Space_SP.gameObject, true);
+            if (keyCode1 == KeyCode.Space)
+            {
+                PCW.SetColor(PCD.Space_SP, Color.green);
+            }
+            else
+            {
+                Color spriteColor = PCD.IsShiftGreen ? Color.white : Color.green;
+                PCW.SetColor(PCD.Space_SP, spriteColor);
+            }
         }
         if (Input.GetKeyUp(keyCode1) || Input.GetKeyUp(keyCode2))
         {
-            PCW.SetColor(PCD.Space_SP, Color.white);
             PCW.SetPressed(PCD.Space_SP.gameObject, false);
+            if (keyCode1 == KeyCode.Space)
+            {
+                PCW.SetColor(PCD.Space_SP, Color.white);
+            }
+            /*else if (!PCD.IsShiftGreen)
+            {
+                PCW.SetPressed(PCD.Space_SP.gameObject, false);
+            }*/
         }
     }
 
@@ -93,42 +108,6 @@ public class PlayerControlsController : MonoBehaviour
         {
             PCW.SetSprite(Sprites.A);
             PCW.SetSprite(Sprites.D);
-        }
-    }
-
-    //-------------------------------------------------------
-    //              Trigger Handling
-    //--------------------------------------------------------
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision.gameObject + " entered collision");
-        if(collision.CompareTag("Tutorial"))
-        {
-            TutorialModel tm = collision.gameObject.GetComponent<TutorialModel>();
-            
-            switch (tm.tutorialType)
-            {
-                case TutorialModel.Tutorial.LeftRight: 
-                    PCW.SetControlsVisible(true);
-                    break;
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log(collision.gameObject + " left collision");
-        if (collision.CompareTag("Tutorial"))
-        {
-            TutorialModel tm = collision.gameObject.GetComponent<TutorialModel>();
-
-            switch (tm.tutorialType)
-            {
-                case TutorialModel.Tutorial.LeftRight:
-                    PCW.SetControlsVisible(false);
-                    break;
-            }
         }
     }
 }

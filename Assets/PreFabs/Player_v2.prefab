@@ -614,6 +614,7 @@ MonoBehaviour:
   PlayerModel: {fileID: 2276104791681780220}
   PlayerView: {fileID: 475348014022584706}
   Rb: {fileID: 2808481982804023158}
+  PCD: {fileID: 683054543889434798}
 --- !u!114 &5837931603945312809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,6 +789,7 @@ MonoBehaviour:
   Shift: {fileID: 269246214, guid: 8219dbd4384875c46816bfbb46656877, type: 3}
   PressedOffset: 0.1
   IsJumpTutorial: 0
+  IsShiftGreen: 0
 --- !u!114 &7613397117805363274
 MonoBehaviour:
   m_ObjectHideFlags: 0
