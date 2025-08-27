@@ -61,11 +61,11 @@ public class PlayerControlsView : MonoBehaviour
 
     public void SetEVisible(bool isVisible)
     {
-        PCD.Left_SP.gameObject.SetActive(isVisible);
+        PCD.E_SP.gameObject.SetActive(isVisible);
     }
 
     public void SetSpaceVisible(bool isVisible)
     {
-        PCD.Left_SP.gameObject.SetActive(isVisible);
+        PCD.Space_SP.gameObject.SetActive(isVisible);
     }
 }

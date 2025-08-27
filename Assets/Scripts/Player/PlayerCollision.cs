@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerCollision : MonoBehaviour {
 
     public PlayerControlsView PCW;
+    public PlayerControlsData PCD;
     public CinemachineView CinemachineView;
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -63,6 +64,10 @@ public class PlayerCollision : MonoBehaviour {
                 {
                     case TutorialModel.Tutorial.LeftRight:
                         PCW.SetControlsVisible(true);
+                        break;
+                    case TutorialModel.Tutorial.Jump:
+                        PCW.SetSpaceVisible(true);
+                        PCD.IsJumpTutorial = true;
                         break;
                 }
                 break;
