@@ -19,13 +19,14 @@ public class PlayerControlsController : MonoBehaviour
 
     void Start()
     {
-        SetControls(PCD.isArrowKeys);
+        SetControls(PCD.IsArrowKeys);
     }
 
     private void Update()
     {
         CheckLeftButton();
         CheckRightButton();
+        CheckSpace();
     }
 
     private void CheckRightButton()
@@ -56,6 +57,30 @@ public class PlayerControlsController : MonoBehaviour
         }
     }
 
+    private void CheckSpace()
+    {
+        
+        KeyCode keyCode1 = KeyCode.LeftShift;
+        KeyCode keyCode2 = KeyCode.RightShift;
+
+        if (PCD.IsJumpTutorial)
+        {
+            keyCode1 = KeyCode.Space;
+            keyCode2 = KeyCode.Space;
+        }
+
+        if (Input.GetKeyDown(keyCode1) || Input.GetKeyDown(keyCode2))
+        {
+            PCW.SetColor(PCD.Space_SP, Color.green);
+            PCW.SetPressed(PCD.Space_SP.gameObject, true);
+        }
+        if (Input.GetKeyUp(keyCode1) || Input.GetKeyUp(keyCode2))
+        {
+            PCW.SetColor(PCD.Space_SP, Color.white);
+            PCW.SetPressed(PCD.Space_SP.gameObject, false);
+        }
+    }
+
     public void SetControls(bool isArrowKeys)
     {
         if (isArrowKeys)
@@ -68,8 +93,19 @@ public class PlayerControlsController : MonoBehaviour
             PCW.SetSprite(Sprites.A);
             PCW.SetSprite(Sprites.D);
         }
-    } 
+    }
 
-    
+    //-------------------------------------------------------
+    //              Trigger Handling
+    //--------------------------------------------------------
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
 }

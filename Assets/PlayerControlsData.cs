@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControlsData : MonoBehaviour
 {
-    public bool isArrowKeys = false;
+    public bool IsArrowKeys = false;
 
     [Header("Sprite Renderers")]
     public SpriteRenderer Left_SP;
@@ -23,8 +23,5 @@ public class PlayerControlsData : MonoBehaviour
 
     [Header("Variables")]
     public float PressedOffset;
-    public bool isLeftPressed;
-    public bool isRightPressed;
-    public bool isSpacePressed;
-    public bool isEPressed;
+    public bool IsJumpTutorial;
 }
