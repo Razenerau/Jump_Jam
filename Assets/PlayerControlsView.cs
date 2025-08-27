@@ -56,6 +56,7 @@ public class PlayerControlsView : MonoBehaviour
     public void SetControlsVisible(bool isVisible)
     {
         PCD.Left_SP.gameObject.SetActive(isVisible);
+        PCD.Right_SP.gameObject.SetActive(isVisible);
     }
 
     public void SetEVisible(bool isVisible)

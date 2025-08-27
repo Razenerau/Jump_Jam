@@ -10,6 +10,8 @@ TagManager:
   - Ground
   - CamTrigger
   - Seeds
+  - Pressed
+  - Tutorial
   layers:
   - Default
   - TransparentFX

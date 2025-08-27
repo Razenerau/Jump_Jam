@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac3aa3f03e0ba24c8ed6f23f2476d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PCW: {fileID: 7613397117805363274}
   CinemachineView: {fileID: 0}
 --- !u!114 &2829698203734337745
 MonoBehaviour:
@@ -772,7 +773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98514b0c4a046104b84fda791b7c74d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsArrowKeys: 0
+  IsArrowKeys: 1
   Left_SP: {fileID: 3712561872642892889}
   Right_SP: {fileID: 5084208658294622511}
   Space_SP: {fileID: 4329807021639691642}

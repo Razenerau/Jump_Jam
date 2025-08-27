@@ -8,6 +8,9 @@ public class TutorialModel : MonoBehaviour
     {
         LeftRight,
         Jump,
-
+        Run,
+        Interact
     }
+
+    public Tutorial tutorialType;
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerControlsController : MonoBehaviour
@@ -101,11 +102,33 @@ public class PlayerControlsController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Debug.Log(collision.gameObject + " entered collision");
+        if(collision.CompareTag("Tutorial"))
+        {
+            TutorialModel tm = collision.gameObject.GetComponent<TutorialModel>();
+            
+            switch (tm.tutorialType)
+            {
+                case TutorialModel.Tutorial.LeftRight: 
+                    PCW.SetControlsVisible(true);
+                    break;
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        Debug.Log(collision.gameObject + " left collision");
+        if (collision.CompareTag("Tutorial"))
+        {
+            TutorialModel tm = collision.gameObject.GetComponent<TutorialModel>();
+
+            switch (tm.tutorialType)
+            {
+                case TutorialModel.Tutorial.LeftRight:
+                    PCW.SetControlsVisible(false);
+                    break;
+            }
+        }
     }
 }
