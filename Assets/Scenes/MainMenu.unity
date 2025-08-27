@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 6959414543761317402}
   - component: {fileID: 2831129153316643542}
   - component: {fileID: 4787528307912345369}
+  - component: {fileID: 6959414543761317403}
   m_Layer: 5
   m_Name: Button
   m_TagString: Screen
@@ -1364,7 +1365,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6959414543761317403}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: LoadNextScene
         m_Mode: 1
@@ -1734,6 +1735,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265933540691063431}
   m_CullTransparentMesh: 1
+--- !u!114 &6959414543761317403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265933540691063431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a133d7e71634040abf65f247886bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &7167927624711046543
 CanvasRenderer:
   m_ObjectHideFlags: 0
