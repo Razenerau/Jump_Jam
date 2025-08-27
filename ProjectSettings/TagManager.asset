@@ -12,6 +12,7 @@ TagManager:
   - Seeds
   - Pressed
   - Tutorial
+  - Interactable
   layers:
   - Default
   - TransparentFX

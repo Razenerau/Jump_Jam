@@ -45,9 +45,10 @@ GameObject:
   - component: {fileID: 8424182022370869238}
   - component: {fileID: 4508399007081602776}
   - component: {fileID: 1957975726634137104}
+  - component: {fileID: 5759363159787257624}
   m_Layer: 0
   m_Name: ResetPuzzle
-  m_TagString: Untagged
+  m_TagString: Tutorial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,6 +185,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5759363159787257624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415416033723708075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d70298842160324f882d4c2694c20bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialType: 3
 --- !u!1 &4959315390939546826
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +244,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResetButton: {fileID: 4415416033723708075}
   PlayerController: {fileID: 0}
+  TutorialModel: {fileID: 5759363159787257624}
+  OtherPuzzle: {fileID: 0}
   PuzzleObjects:
   - {fileID: 0}
   ResettableObjects: []
+  ResetFuelTo: 0
+  IsActive: 0

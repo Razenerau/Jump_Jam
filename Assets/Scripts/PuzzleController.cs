@@ -6,6 +6,7 @@ public class PuzzleController : MonoBehaviour
 {
     public GameObject ResetButton;
     public PlayerController PlayerController;
+    public TutorialModel TutorialModel;
 
     [Header("Puzzle Componets")]
     public PuzzleController OtherPuzzle;
@@ -18,6 +19,8 @@ public class PuzzleController : MonoBehaviour
 
     void Awake()
     {
+        TutorialModel.tutorialType = TutorialModel.Tutorial.None;
+
         SetResetActive(false);
         InitializeResettableObjects();
     }
@@ -71,21 +74,14 @@ public class PuzzleController : MonoBehaviour
         switch (isActive)
         {
             case true:
+                TutorialModel.tutorialType = TutorialModel.Tutorial.Interact;
                 spriteRenderer.color = Color.white;
                 break;
 
             case false:
+                TutorialModel.tutorialType = TutorialModel.Tutorial.None;
                 spriteRenderer.color = Color.gray;
                 break;
-        }
-    }
-
-    private void SetPuzzleControllerToFuel(GameObject obj)
-    {
-        FuelData fuelData = obj.GetComponent<FuelData>();
-        if (fuelData != null)
-        {
-            fuelData.PuzzleController = this;
         }
     }
 }

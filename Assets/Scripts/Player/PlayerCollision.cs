@@ -75,6 +75,9 @@ public class PlayerCollision : MonoBehaviour {
                         PCW.SetSpaceVisible(true);
                         PCW.SetSprite(PlayerControlsController.Sprites.Shift);
                         break;
+                    case TutorialModel.Tutorial.Interact:
+                        PCW.SetEVisible(true);
+                        break;
                 }
                 break;
         }
@@ -85,6 +88,7 @@ public class PlayerCollision : MonoBehaviour {
         if (collision.CompareTag("Tutorial"))
         {
             TutorialModel tm = collision.gameObject.GetComponent<TutorialModel>();
+            Debug.Log(tm.tag + "   " + tm.tutorialType);
 
             switch (tm.tutorialType)
             {
@@ -97,6 +101,10 @@ public class PlayerCollision : MonoBehaviour {
                     break;
                 case TutorialModel.Tutorial.Run:
                     PCW.SetSpaceVisible(false);
+                    break;
+                case TutorialModel.Tutorial.Interact:
+                    Debug.Log("Left E trigger");
+                    PCW.SetEVisible(false);
                     break;
             }
         }

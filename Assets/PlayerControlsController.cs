@@ -28,6 +28,16 @@ public class PlayerControlsController : MonoBehaviour
         CheckLeftButton();
         CheckRightButton();
         CheckSpace();
+        CheckEButton();
+    }
+
+    private void CheckEButton()
+    {
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
+        {
+            PCW.SetEVisible(false);
+        }
+        
     }
 
     private void CheckRightButton()
