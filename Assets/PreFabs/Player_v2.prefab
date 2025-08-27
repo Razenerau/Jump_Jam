@@ -759,6 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PCD: {fileID: 683054543889434798}
+  PCW: {fileID: 7613397117805363274}
 --- !u!114 &683054543889434798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,7 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98514b0c4a046104b84fda791b7c74d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isArrowKeys: 1
+  isArrowKeys: 0
   Left_SP: {fileID: 3712561872642892889}
   Right_SP: {fileID: 5084208658294622511}
   Space_SP: {fileID: 6305816284291694902}
@@ -783,6 +784,11 @@ MonoBehaviour:
   E: {fileID: 852842742, guid: 8219dbd4384875c46816bfbb46656877, type: 3}
   Space: {fileID: -1481290106, guid: 8219dbd4384875c46816bfbb46656877, type: 3}
   Shift: {fileID: 269246214, guid: 8219dbd4384875c46816bfbb46656877, type: 3}
+  PressedOffset: 0.1
+  isLeftPressed: 0
+  isRightPressed: 0
+  isSpacePressed: 0
+  isEPressed: 0
 --- !u!114 &7613397117805363274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,3 +801,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b753e70688808dd448635dc488d880d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PCC: {fileID: 7635704974424403802}
+  PCD: {fileID: 683054543889434798}

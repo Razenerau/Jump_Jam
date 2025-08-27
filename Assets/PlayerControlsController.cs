@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerControlsController : MonoBehaviour
 {
     public PlayerControlsData PCD;
+    public PlayerControlsView PCW;
 
     public enum Sprites
     {
@@ -21,58 +22,54 @@ public class PlayerControlsController : MonoBehaviour
         SetControls(PCD.isArrowKeys);
     }
 
+    private void Update()
+    {
+        CheckLeftButton();
+        CheckRightButton();
+    }
+
+    private void CheckRightButton()
+    {
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            PCW.SetColor(PCD.Right_SP, Color.green);
+            PCW.SetPressed(PCD.Right_SP.gameObject, true);
+        }
+        if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            PCW.SetColor(PCD.Right_SP, Color.white);
+            PCW.SetPressed(PCD.Right_SP.gameObject, false);
+        }
+    }
+
+    private void CheckLeftButton()
+    {
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            PCW.SetColor(PCD.Left_SP, Color.green);
+            PCW.SetPressed(PCD.Left_SP.gameObject, true);
+        }
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            PCW.SetColor(PCD.Left_SP, Color.white);
+            PCW.SetPressed(PCD.Left_SP.gameObject, false);
+        }
+    }
+
     public void SetControls(bool isArrowKeys)
     {
         if (isArrowKeys)
         {
-            SetSprite(Sprites.LeftArrow);
-            SetSprite(Sprites.RightArrow);
+            PCW.SetSprite(Sprites.LeftArrow);
+            PCW.SetSprite(Sprites.RightArrow);
         }
         else
         {
-            SetSprite(Sprites.A);
-            SetSprite(Sprites.D);
+            PCW.SetSprite(Sprites.A);
+            PCW.SetSprite(Sprites.D);
         }
     } 
 
-    public void SetSprite(Sprites spriteName)
-    {
-        switch (spriteName)
-        {
-            case Sprites.A:
-                PCD.Left_SP.sprite = PCD.A;
-                break;
-            case Sprites.D:
-                PCD.Right_SP.sprite = PCD.D;
-                break;
-            case Sprites.LeftArrow:
-                PCD.Left_SP.sprite = PCD.LeftArrow;
-                break;
-            case Sprites.RightArrow:
-                PCD.Right_SP.sprite = PCD.RightArrow;
-                break;
-            case Sprites.Space:
-                PCD.Space_SP.sprite = PCD.Space;
-                break;
-            case Sprites.Shift:
-                PCD.Space_SP.sprite = PCD.Shift;
-                break;
-        }
-    }
-
-    public void SetControlsVisible(bool isVisible)
-    {
-        PCD.Left_SP.gameObject.SetActive(isVisible);
-    }
-
-    public void SetEVisible(bool isVisible)
-    {
-        PCD.Left_SP.gameObject.SetActive(isVisible);
-    }
-
-    public void SetSpaceVisible(bool isVisible)
-    {
-        PCD.Left_SP.gameObject.SetActive(isVisible);
-    }
+    
 
 }

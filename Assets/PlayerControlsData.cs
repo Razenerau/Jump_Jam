@@ -20,4 +20,11 @@ public class PlayerControlsData : MonoBehaviour
     public Sprite E;
     public Sprite Space;
     public Sprite Shift;
+
+    [Header("Variables")]
+    public float PressedOffset;
+    public bool isLeftPressed;
+    public bool isRightPressed;
+    public bool isSpacePressed;
+    public bool isEPressed;
 }
