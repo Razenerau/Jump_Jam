@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -78,6 +79,11 @@ public class PlayerCollision : MonoBehaviour {
                     case TutorialModel.Tutorial.Interact:
                         PCW.SetEVisible(true);
                         break;
+                    case TutorialModel.Tutorial.Fly:
+                        PCD.IsDoubleJumpTutorial = true;
+                        playerModel = gameObject.GetComponent<PlayerModel>();
+                        StartCoroutine(StartFlyTutorial(playerModel));
+                        break;
                 }
                 break;
         }
@@ -103,10 +109,22 @@ public class PlayerCollision : MonoBehaviour {
                     PCW.SetSpaceVisible(false);
                     break;
                 case TutorialModel.Tutorial.Interact:
-                    Debug.Log("Left E trigger");
                     PCW.SetEVisible(false);
+                    break;
+                case TutorialModel.Tutorial.Fly:
+                    PCD.IsDoubleJumpTutorial = false;
+                    PCW.SetSpaceVisible(false);
                     break;
             }
         }
+    }
+
+    private IEnumerator StartFlyTutorial(PlayerModel pm)
+    {
+        while (pm.CurrentFuel <= 0)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        PCW.SetSpaceVisible(true);
     }
 }

@@ -10,6 +10,7 @@ public class TutorialModel : MonoBehaviour
         Jump,
         Run,
         Interact,
+        Fly,
         None
     }
 

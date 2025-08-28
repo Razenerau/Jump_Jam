@@ -74,25 +74,33 @@ public class PlayerControlsController : MonoBehaviour
         KeyCode keyCode1 = KeyCode.LeftShift;
         KeyCode keyCode2 = KeyCode.RightShift;
 
-        if (PCD.IsJumpTutorial)
+        if (PCD.IsJumpTutorial || PCD.IsDoubleJumpTutorial)
         {
             keyCode1 = KeyCode.Space;
             keyCode2 = KeyCode.Space;
         }
 
-        if (Input.GetKeyDown(keyCode1) || Input.GetKeyDown(keyCode2))
+        if ((Input.GetKeyDown(keyCode1) || Input.GetKeyDown(keyCode2)) && !PCD.IsFlying)
         {
             PCW.SetPressed(PCD.Space_SP.gameObject, true);
-            if (keyCode1 == KeyCode.Space)
+
+            if (keyCode1 == KeyCode.Space && !PCD.IsDoubleJumpTutorial)
             {
                 PCW.SetColor(PCD.Space_SP, Color.green);
             }
-            else
+            else if (!PCD.IsDoubleJumpTutorial)
             {
                 Color spriteColor = PCD.IsShiftGreen ? Color.white : Color.green;
                 PCW.SetColor(PCD.Space_SP, spriteColor);
             }
         }
+
+        if (PCD.IsFlying)
+        {
+            PCW.SetPressed(PCD.Space_SP.gameObject, true);
+            PCW.SetColor(PCD.Space_SP, Color.green);
+        }
+
         if (Input.GetKeyUp(keyCode1) || Input.GetKeyUp(keyCode2))
         {
             PCW.SetPressed(PCD.Space_SP.gameObject, false);

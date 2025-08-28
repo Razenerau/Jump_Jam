@@ -14,6 +14,7 @@ public class PlayerModel : MonoBehaviour
     [Header("Movement Variables")]
     public float WalkingSpeed = 5;
     public float RunningSpeed = 7;
+    public Vector2 LastVelocity = Vector2.zero;
 
     [Header("Jump/Fly Variables")]
     public float JumpForce = 2f;

@@ -23,6 +23,9 @@ public class PlayerControlsData : MonoBehaviour
 
     [Header("Variables")]
     public float PressedOffset;
+    public bool IsFlying;
     public bool IsJumpTutorial;
+    public bool IsDoubleJumpTutorial;
     public bool IsShiftGreen;
+    
 }

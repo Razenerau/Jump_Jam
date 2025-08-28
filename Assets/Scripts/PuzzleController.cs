@@ -50,7 +50,6 @@ public class PuzzleController : MonoBehaviour
         if (!IsActive) return;
         if(OtherPuzzle != null)
         {
-            Debug.Log("other plzzle reset");
             OtherPuzzle.ResetPuzzle();
         }
 

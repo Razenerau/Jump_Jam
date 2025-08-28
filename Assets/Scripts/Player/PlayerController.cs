@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     // All checks happen in Update
     void Update()
     {
+        if(PauseMenuController.IsPaused) return;
+
         UptadeInput();
 
         JumpOrFlyCheck();
@@ -23,6 +25,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (PauseMenuController.IsPaused)
+        {
+            return;
+        }
+
         Jump();
 
         Fly();
@@ -92,6 +99,8 @@ public class PlayerController : MonoBehaviour
                 PlayerModel.IsFlying = true;
                 PlayerModel.IsFalling = false;
                 PlayerModel.IsJumping = false;
+
+                PCD.IsFlying = true;
             }
             else if (PlayerModel.CurrentFuel <= 0) 
             {
@@ -114,19 +123,14 @@ public class PlayerController : MonoBehaviour
         {
             PlayerModel.IsJumping = false;
             PlayerModel.IsFlying = false;
+
+            PCD.IsFlying = false;
         }
 
         if(PlayerModel.CurrentFuel <= 0)
         {
             PlayerModel.IsFlying = false;
         }
-    }
-
-    private void RunningCheck()
-    {
-        if (Input.GetKey(KeyCode.LeftShift)) { PlayerModel.IsRunning = true; }
-
-        else { PlayerModel.IsRunning = false; }
     }
 
     //=============================================================================================
