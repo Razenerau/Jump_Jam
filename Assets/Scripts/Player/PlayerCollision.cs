@@ -11,12 +11,18 @@ public class PlayerCollision : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         switch (collision.tag) {
             case "Death":
+                PlayerModel playerModel = GetComponent<PlayerModel>();
+                if(playerModel.Spawnpoint != Vector2.zero)
+                {
+                    gameObject.transform.position = playerModel.Spawnpoint;
+                    gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                }
+                else
+                {
+                    gameObject.transform.position = new Vector3(-29, -5.5f, 0);
+                }
                 
-                    string thisLevel = SceneManager.GetActiveScene().name;
-                    SceneManager.LoadScene(thisLevel);
-
-                    //SceneManager.LoadScene("LVL1_2");  
-                    break;
+                break;
                 
             case "Finish":
                 
@@ -50,7 +56,7 @@ public class PlayerCollision : MonoBehaviour {
                     break;
                 
             case "Seeds":
-                PlayerModel playerModel = gameObject.GetComponent<PlayerModel>();
+                playerModel = gameObject.GetComponent<PlayerModel>();
                 playerModel.SeedsCount++;
                 Debug.Log(playerModel.SeedsCount);
 
@@ -85,6 +91,13 @@ public class PlayerCollision : MonoBehaviour {
                         StartCoroutine(StartFlyTutorial(playerModel));
                         break;
                 }
+                break;
+            case "Checkpoint":
+                CheckpointController checkpointController = collision.gameObject.GetComponent<CheckpointController>();
+                playerModel = gameObject.GetComponent<PlayerModel>();
+
+                playerModel.Spawnpoint = checkpointController.RespawnPoint.position;
+                checkpointController.SetActive();
                 break;
         }
     }

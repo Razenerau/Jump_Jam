@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2736443417466659901}
   - component: {fileID: 827641698192915811}
   - component: {fileID: 498174829377333713}
+  - component: {fileID: 392633020572416488}
   m_Layer: 0
   m_Name: Seeds
   m_TagString: Seeds
@@ -172,6 +173,23 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &392633020572416488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032336831194107622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb576561b55cc20489e736392dc5d9a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr1: {fileID: 1003293816781283089}
+  sr2: {fileID: 3652043110791618874}
+  sr3: {fileID: 5813798770234886844}
+  TimeElapsed: 0
+  Speed: 1
 --- !u!1 &7032766391732336997
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
 {
+    [Header("Spawnpoint")]
+    public Vector2 Spawnpoint;
+
     [Header("Input")]
     public float Horizontal;
     public bool IsJumpPressed = false;

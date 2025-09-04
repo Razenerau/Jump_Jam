@@ -78,6 +78,7 @@ public class PlayerControlsController : MonoBehaviour
         {
             keyCode1 = KeyCode.Space;
             keyCode2 = KeyCode.Space;
+            PCW.SetSprite(Sprites.Space);
         }
 
         if ((Input.GetKeyDown(keyCode1) || Input.GetKeyDown(keyCode2)) && !PCD.IsFlying)
