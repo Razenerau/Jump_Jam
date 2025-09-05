@@ -10,6 +10,9 @@ public class SeedsController : MonoBehaviour
 
     public float TimeElapsed = 0;
     public float Speed = 2;
+    public float Radius = 1;
+    public float CurrentRadius = 1;
+    public bool IsConstRadius = false;
 
     private void FixedUpdate()
     {
@@ -25,8 +28,17 @@ public class SeedsController : MonoBehaviour
 
     private void RotateObject(Transform t, float offset)
     {
-        float x = Mathf.Cos((TimeElapsed + offset) * Speed);
-        float y = Mathf.Sin((TimeElapsed + offset) * Speed);
+        if (!IsConstRadius)
+        {
+            CurrentRadius = Radius * Mathf.Sin((TimeElapsed) * Speed);
+        }
+        else
+        {
+            CurrentRadius = Radius;
+        }
+
+        float x = CurrentRadius * Mathf.Cos((TimeElapsed + offset) * Speed);
+        float y = CurrentRadius * Mathf.Sin((TimeElapsed + offset) * Speed);
 
         Vector2 newPos = new Vector2(transform.position.x + x, transform.position.y + y);
         t.position = newPos;
