@@ -5,9 +5,15 @@ using UnityEngine.UI;
 
 public class SignalView : MonoBehaviour
 {
+    public static SignalView Instance;
     public List<Image> SignalPanels;
     public List<Color> SignalColors;
     public int SignalStrength = 0;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public void IncreaseSignalStrenght()
     {

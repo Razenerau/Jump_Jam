@@ -10,6 +10,7 @@ public class CheckpointController : MonoBehaviour
 
     public void SetActive()
     {
+        SignalView.Instance.IncreaseSignalStrenght();
         SpriteRenderer.color = Color.green;
         CheckPointCollider.enabled = false;
     }
