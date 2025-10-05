@@ -58,6 +58,7 @@ public class PlayerCollision : MonoBehaviour {
             case "Seeds":
                 playerModel = gameObject.GetComponent<PlayerModel>();
                 playerModel.SeedsCount++;
+                SoundManager.PlaySound(SoundType.SEEDS);
                 Debug.Log(playerModel.SeedsCount);
 
                 Destroy(collision.gameObject);

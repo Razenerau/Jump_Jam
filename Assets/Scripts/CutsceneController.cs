@@ -23,6 +23,11 @@ public class CutsceneController : MonoBehaviour
     public int CurrentScene = 0;
     public bool IsGoodEnding = false;
 
+    [Header("Audio")]
+    public AudioClip GoodEndingAudio;
+    public AudioClip BadEndingAudio;
+    public AudioSource AudioSource;
+
     [Header("End Screen")]
     public Button ReloadButton;
     public TextMeshProUGUI EndingText;
@@ -33,11 +38,15 @@ public class CutsceneController : MonoBehaviour
         {
             IsGoodEnding = false;
             Scenes = BadEndingScenes;
+            AudioSource.clip = BadEndingAudio;
+            AudioSource.Play();
         }
         else
         {
             IsGoodEnding = true;
             Scenes = GoodEndingScenes;
+            AudioSource.clip = GoodEndingAudio;
+            AudioSource.Play();
         }
         PauseMenuController.IsPaused = true;
         Display.gameObject.SetActive(true);

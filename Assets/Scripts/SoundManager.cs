@@ -12,7 +12,11 @@ public enum SoundType
     LAND,
 
     DOOR_OPEN,
-    DOOR_LOCKED
+    DOOR_LOCKED,
+
+    SEEDS
+
+
 }
 
 [RequireComponent(typeof(AudioSource))]
