@@ -20,6 +20,7 @@ public class SignalView : MonoBehaviour
         if (SignalStrength > 4) return;
         SignalStrength++;
         UpdateSignalPanels();
+        SoundManager.PlaySound(SoundType.FOUNDSIGNAL);
     }
 
     public void UpdateSignalPanels()

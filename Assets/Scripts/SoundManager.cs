@@ -14,7 +14,8 @@ public enum SoundType
     DOOR_OPEN,
     DOOR_LOCKED,
 
-    SEEDS
+    SEEDS,
+    FOUNDSIGNAL
 
 
 }
