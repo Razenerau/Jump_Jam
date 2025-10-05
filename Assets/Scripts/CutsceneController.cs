@@ -27,12 +27,9 @@ public class CutsceneController : MonoBehaviour
     public Button ReloadButton;
     public TextMeshProUGUI EndingText;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void StartCutscene()
     {
-        Debug.Log(collision.gameObject);
-        
-        PlayerModel = collision.gameObject.GetComponent<PlayerModel>();
-        if(PlayerModel.SeedsCount < 3)
+        if (PlayerModel.SeedsCount < 3)
         {
             IsGoodEnding = false;
             Scenes = BadEndingScenes;
@@ -49,6 +46,10 @@ public class CutsceneController : MonoBehaviour
         PauseCanvas.gameObject.SetActive(false);
         Display.sprite = Scenes[0];
         IsActive = true;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 
     private void Awake()
