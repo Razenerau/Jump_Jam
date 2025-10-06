@@ -15,7 +15,7 @@ public class PauseMenuController : MonoBehaviour
     
     void Start()
     {
-        SetPaused();
+        //SetPaused();
         SetMusicVolume(0.5f);
     }
 
